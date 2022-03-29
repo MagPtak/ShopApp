@@ -1,24 +1,22 @@
 import routerPaths from "./routerPaths";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import LoginView from "./components/LoginView";
-import RegisterView from "./components/RegisterView";
-import HomeView from "./components/HomeView";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import Home from "./components/Home";
+import Category from "./components/Category";
+import Cart from "./components/Cart";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={routerPaths.login}>
-          <LoginView />
-        </Route>
-        <Route path={routerPaths.register}>
-          <RegisterView />
-        </Route>
-        <Route path={routerPaths.home}>
-          <HomeView />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <Router>
+        <Routes>
+          <Route path={routerPaths.signin} element={<SignIn />}/>
+          <Route path={routerPaths.signup} element={<SignUp />}/>
+          <Route path={routerPaths.home} element={<Home />} />
+          <Route path={routerPaths.category} element={<Category />}/>
+          <Route path={routerPaths.cart} element={<Cart />}/>
+        </Routes>
+      </Router>
   );
 }
 

@@ -1,7 +1,9 @@
 const routerPaths = {
-  login: "/",
-  register: "/register",
-  home: "/home",
+  signin: "/signin",
+  signup: "/signup",
+  home: "/",
+  category: "/category",
+  cart: "/cart"
 };
 
 export default routerPaths;
