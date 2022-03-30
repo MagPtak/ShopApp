@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 const Product: React.FC<{}> = () => {
   let { name } = useParams();
-  return(
+  return (
     <div>Product {name ? name : null}</div>
   )
 }

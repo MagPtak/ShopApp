@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const SignIn: React.FC<{}> = () => {
-  return(
+  return (
     <div>Sign in</div>
   )
 }
