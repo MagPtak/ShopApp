@@ -15,6 +15,7 @@ function App() {
         <Route path={routerPaths.signup} element={<SignUp />}/>
         <Route path={routerPaths.home} element={<Home />} />
         <Route path={routerPaths.categories} element={<Category />}/>
+        <Route path={routerPaths.category} element={<Category />}/>
         <Route path={routerPaths.product} element={<Product />}/>
         <Route path={routerPaths.cart} element={<Cart />}/>
       </Routes>
