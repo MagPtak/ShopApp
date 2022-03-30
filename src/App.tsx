@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Category from "./components/Category";
 import Cart from "./components/Cart";
 import Product from "./components/Product";
+import "./index.css";
 
 function App() {
   return (
