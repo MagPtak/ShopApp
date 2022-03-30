@@ -1,8 +1,15 @@
 import React from 'react';
+import Header from './Header';
+import Search from './Search';
+import Nav from './Nav';
 
 const Home: React.FC<{}> = () => { 
  return (
-    <div>Home</div>
+    <>
+      <Header />
+      <Search />
+      <Nav />
+    </>
   )
 }
 
