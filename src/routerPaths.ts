@@ -2,9 +2,9 @@ const routerPaths = {
   signin: "/signin",
   signup: "/signup",
   home: "/",
-  category: "/category",
-  categoryName: "/category/{name}",
-  productName: "/product/{name}",
+  categories: "/category",
+  category: "/category/:name",
+  product: "/product/:name",
   cart: "/cart",
 };
 
