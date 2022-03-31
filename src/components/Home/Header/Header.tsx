@@ -50,7 +50,7 @@ const Header: React.FC<{}> = () => {
               <Select
                 labelId="select-demo"
                 id="demo-simple-select"
-                sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500'}}
+                sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500',}}
                 className={classes.selectFirst}
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
