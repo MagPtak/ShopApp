@@ -1,8 +1,6 @@
 import SearchIcon from '@mui/icons-material/Search';
 import React from 'react';
-import "./Search.css"
-import { makeStyles } from "@mui/styles";
-
+import "./Search.css";
 
 const Search: React.FC<{}> = () => {
 

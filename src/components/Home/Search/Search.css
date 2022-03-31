@@ -1,5 +1,5 @@
 .searchContainer {
-  height: 115px;
+  height: 150px;
   background-color: rgb(230, 230, 230);
   color: #fff;
   font-size: 16px;
@@ -26,20 +26,10 @@
   font-size: 40px;
 }
 
-form {
-  display: flex;
-}
-
 .input {
-  /* height: 40px;
-  width: 440px;
-  border-radius: 5px 0 0 5px; */
-  /* border: 1px solid lightgray; */
   border: none;
   height: 40px;
   width: 440px;
-  /* padding-left: 10px;
-  font-size: 18px; */
   outline: none;
   font-size: 18px; 
   padding: 0 10px 0 10px;
@@ -59,9 +49,6 @@ form {
   padding: 0 10px 0 10px;
   background-color: #fff;
 }
-
-
-
 
 .button {
   height: 40px;
