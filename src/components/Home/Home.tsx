@@ -1,14 +1,15 @@
 import React from 'react';
-import PageContainer from '../PageContainer/PageContainer';
+import Header from '../Header/Header';
 import Main from './Main/Main'
 
-const Home: React.FC<{}> = () => { 
+const Home: React.FC<Record<string, unknown>> = () => { 
  return (
     <div className='container'>
-      <PageContainer />
+      <Header />
       <Main />
     </div>
   )
 }
 
 export default Home;
+

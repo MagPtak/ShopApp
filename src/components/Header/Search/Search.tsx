@@ -2,7 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import React from 'react';
 import "./Search.css";
 
-const Search: React.FC<{}> = () => {
+const Search: React.FC<Record<string, unknown>> = () => {
 
   return (
     <div className='searchContainer'>

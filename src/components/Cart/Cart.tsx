@@ -1,10 +1,10 @@
 import React from 'react';
-import PageContainer from '../PageContainer/PageContainer';
+import Header from '../Header/Header';
 
-const Cart: React.FC<{}> = () => {
+const Cart: React.FC<Record<string, unknown>> = () => {
   return (
     <div className='container'>
-      <PageContainer />
+      <Header />
       Cart
     </div>
   )

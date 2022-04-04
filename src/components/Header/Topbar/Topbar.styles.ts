@@ -25,4 +25,14 @@ export const useStyles = makeStyles({
       color: "white",
     },
   },
+  //Nie działa 😖
+  menuButton: {
+    "& .Mui-active": {
+      "& :active": {
+        backgroundColor: "black",
+        color: "orange",
+      },
+    },
+    marginRight: "0",
+  },
 });

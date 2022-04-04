@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Nav.css';
 
-const Nav: React.FC<{}> = () => {
+const Nav: React.FC<Record<string, unknown>> = () => {
 
   return (
     <div className='navContainer'>

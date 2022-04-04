@@ -1,16 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import PageContainer from '../PageContainer/PageContainer';
+import Header from '../Header/Header';
 
 
-const Category: React.FC<{}> = () => {
+const Category: React.FC<Record<string, unknown>> = () => {
   let { name } = useParams();
   return (
     <div className='container'>
-      <PageContainer />
+      <Header />
       Category {name ? name : null}
       </div>
   )
 }
 
 export default Category;
+

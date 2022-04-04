@@ -1,0 +1,129 @@
+.HeaderContainer {
+  height: 50px;
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.HeaderContent {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10% 0 10%;
+  height: 100%;
+}
+
+.leftSideContainer {
+  display: flex;
+}
+
+.rightSideContainer {
+  display: flex;
+}
+
+.welcomeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 100%;
+}
+
+.languageContainer {
+  width: 160px;
+  height: 100%;
+  margin-left: 15px;
+}
+
+.currencyContainer {
+  width: 160px;
+  height: 100%;
+}
+
+.flagContainer {
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.flagContainer p{
+  display: flex;
+  
+}
+
+.inr, .usd, .nzd, .gmd, .ilr, .eur {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+.inr {
+  background-image: url("../../../assets/inr.png");
+}
+
+.usd{
+  background-image: url("../../../assets/usd.png");
+}
+
+.nzd {
+  background-image: url("../../../assets/nzd.png");
+}
+
+.gmd {
+  background-image: url("../../../assets/gmd.png");
+}
+
+.ilr {
+  background-image: url("../../../assets/ilr.png");
+}
+
+.eur {
+  background-image: url("../../../assets/eur.png");
+}
+
+.cartButtonContainer,
+.favoriteButtonContainer,
+.userContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50px;
+  color: #fff;
+  border-right: 1px solid grey;
+}
+
+.photo {
+  height: 33px;
+  width: 33px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+}
+
+.productContainer{
+  display: flex;
+  width: 300px;
+  /* padding: 0 10px 0 10px; */
+}
+
+.productImage{
+  width: 50px;
+  height: 60px;
+  background-color: rgb(230, 230, 230);
+  margin-right: 10px;
+}
+
+.productDescription{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.productName,
+.productPrice {
+  margin: 0;
+}
+
