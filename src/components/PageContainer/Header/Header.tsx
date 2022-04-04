@@ -1,36 +1,10 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { FormControl, Select, MenuItem, IconButton, Badge } from '@mui/material';
-import { makeStyles } from "@mui/styles";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Favorite } from '@mui/icons-material';
+import { useStyles } from './Header.styles';
 
-const useStyles = makeStyles({
-  selectFirst: {
-    color: 'white',
-    height: '50px',
-    borderRight: '1px solid grey',
-    borderLeft: '1px solid grey',
-    "& .MuiSvgIcon-root": {
-      color: "white",
-    },
-  },
-  selectSecond: {
-    color: 'white',
-    fontWeight: '400',
-    height: '50px',
-    borderRight: '1px solid grey',
-    "& .MuiSvgIcon-root": {
-      color: "white",
-    },
-  },
-  cartIcon: {
-    height: '50px',
-    "& .MuiSvgIcon-root": {
-      color: "white",
-    },
-  }
-});
 
 const Header: React.FC<{}> = () => {
   const [language, setLanguage] = useState('English')
@@ -39,8 +13,8 @@ const Header: React.FC<{}> = () => {
   const classes = useStyles();
 
   return (
-    <div className='container'>
-      <div className='content'>
+    <div className='HeaderContainer'>
+      <div className='HeaderContent'>
         <div className='leftSideContainer'>
           <div className='welcomeContainer'>
             <p>Welcome to our store</p>

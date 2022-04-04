@@ -1,14 +1,13 @@
 import React from 'react';
 import PageContainer from '../PageContainer/PageContainer';
-import Main from './Main/Main'
 
-const Home: React.FC<{}> = () => { 
- return (
+const Cart: React.FC<{}> = () => {
+  return (
     <div className='container'>
       <PageContainer />
-      <Main />
+      Cart
     </div>
   )
 }
 
-export default Home;
+export default Cart;

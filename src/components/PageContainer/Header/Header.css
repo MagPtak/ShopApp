@@ -1,4 +1,4 @@
-.container {
+.HeaderContainer {
   height: 50px;
   background-color: black;
   color: #fff;
@@ -6,7 +6,7 @@
   font-weight: 500;
 }
 
-.content {
+.HeaderContent {
   display: flex;
   justify-content: space-between;
   margin: 0 10% 0 10%;
