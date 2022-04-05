@@ -51,37 +51,13 @@
   
 }
 
-.inr, .usd, .nzd, .gmd, .ilr, .eur {
+/* .inr, .usd, .nzd, .gmd, .ilr, .eur {
   height: 25px;
   width: 25px;
   border-radius: 50%;
   background-size: 100%;
   background-repeat: no-repeat;
   margin-right: 10px;
-}
-/* 
-.inr {
-  background-image: url("../../../assets/inr.png");
-}
-
-.usd{
-  background-image: url("../../../assets/usd.png");
-}
-
-.nzd {
-  background-image: url("../../../assets/nzd.png");
-}
-
-.gmd {
-  background-image: url("../../../assets/gmd.png");
-}
-
-.ilr {
-  background-image: url("../../../assets/ilr.png");
-}
-
-.eur {
-  background-image: url("../../../assets/eur.png");
 } */
 
 .cartButtonContainer,

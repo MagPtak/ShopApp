@@ -1,15 +1,16 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
 import './Topbar.css';
 import { FormControl, Select, MenuItem, IconButton, Badge, Menu, Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Favorite } from '@mui/icons-material';
 import { useStyles } from './Topbar.styles';
 import { currencies } from './currencies';
+import SelectItem from './SelectItem/SelectItem';
 
 
 const Header: React.FC<Record<string, unknown>> = () => {
   const [language, setLanguage] = useState('English')
-  const [currency, setCurrency] = useState('USD')
+  const [currency, setCurrency] = useState("USD")
   const [anchorEl, setAnchorEl] = useState(null)
   const [anchorElFav, setAnchorElFav] = useState(null)
 
@@ -46,47 +47,16 @@ const Header: React.FC<Record<string, unknown>> = () => {
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
               >
-                {/* <div>
-                  {currencies.currency.map((cur) => (
-                    <li>
-                      <MenuItem 
-                      key={cur.id}
-                      value={cur.name}
-                      url={cur.url}
+                <div>
+                  {currencies.map((currency) => (
+                    <li key={currency.id}>
+                      <SelectItem 
+                      name={currency.name}
+                      url={currency.url}
                       />
                     </li>
                   ))}
-                  </div> */}
-                {/* <MenuItem value={"USD"}>
-                <div className='flagContainer'>
-                    <div className='usd' />
-                    <p>USD</p>
                 </div>
-                </MenuItem>
-                <MenuItem value={"NZD"}>
-                <div className='flagContainer'>
-                    <div className='nzd' />
-                    <p>NZD</p>
-                </div>
-                </MenuItem>
-                <MenuItem value={"GMD"}>
-                <div className='flagContainer'>
-                    <div className='gmd' />
-                    <p>GMD</p>
-                </div>
-                </MenuItem>
-                <MenuItem value={"ILR"}>
-                <div className='flagContainer'>
-                    <div className='ilr' />
-                    <p>ILR</p>
-                </div>
-                </MenuItem>
-                <MenuItem value={"EUR"}>
-                <div className='flagContainer'>
-                    <div className='eur' />
-                    <p>EUR</p>
-                </div>
-                </MenuItem> */}
               </Select>
             </FormControl>
           </div>
