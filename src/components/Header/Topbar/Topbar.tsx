@@ -4,6 +4,7 @@ import { FormControl, Select, MenuItem, IconButton, Badge, Menu, Button } from '
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Favorite } from '@mui/icons-material';
 import { useStyles } from './Topbar.styles';
+import { currencies } from './currencies';
 
 
 const Header: React.FC<Record<string, unknown>> = () => {
@@ -45,13 +46,18 @@ const Header: React.FC<Record<string, unknown>> = () => {
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
               >
-                <MenuItem value={"INR"}>
-                  <div className='flagContainer'>
-                    <div className='inr' />
-                    <p>INR</p>
-                  </div>
-                </MenuItem>
-                <MenuItem value={"USD"}>
+                {/* <div>
+                  {currencies.currency.map((cur) => (
+                    <li>
+                      <MenuItem 
+                      key={cur.id}
+                      value={cur.name}
+                      url={cur.url}
+                      />
+                    </li>
+                  ))}
+                  </div> */}
+                {/* <MenuItem value={"USD"}>
                 <div className='flagContainer'>
                     <div className='usd' />
                     <p>USD</p>
@@ -80,7 +86,7 @@ const Header: React.FC<Record<string, unknown>> = () => {
                     <div className='eur' />
                     <p>EUR</p>
                 </div>
-                </MenuItem>
+                </MenuItem> */}
               </Select>
             </FormControl>
           </div>

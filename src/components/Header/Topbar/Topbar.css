@@ -59,7 +59,7 @@
   background-repeat: no-repeat;
   margin-right: 10px;
 }
-
+/* 
 .inr {
   background-image: url("../../../assets/inr.png");
 }
@@ -82,7 +82,7 @@
 
 .eur {
   background-image: url("../../../assets/eur.png");
-}
+} */
 
 .cartButtonContainer,
 .favoriteButtonContainer,

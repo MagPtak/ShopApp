@@ -1,6 +1,6 @@
 .mainContainer {
   height: calc(100vh - 260px);
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
 }
 
 .mainContent{
@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0 10% 0% 10%;
-  height: 95%;
+  height: 100%;
   width: auto;
 }
 
