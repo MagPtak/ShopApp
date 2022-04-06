@@ -30,3 +30,27 @@ export const currencies = [
     url: require("../../../assets/eur.png"),
   },
 ];
+
+export const cartData = [
+  {
+    id: 1,
+    name: "Denim Pullover",
+    price: "$ 37.07",
+    url: require("../../../assets/cart/dress.jpg"),
+  },
+  {
+    id: 2,
+    name: "Super Jacket",
+    price: "$ 90",
+    url: require("../../../assets/cart/sweater.jpg"),
+  },
+];
+
+export const favData = [
+  {
+    id: 1,
+    name: "Long Dress",
+    price: "$ 60",
+    url: require("../../../assets/cart/longdress.jpg"),
+  },
+];

@@ -4,22 +4,12 @@ import { FormControl, Select, MenuItem, IconButton, Badge, Menu, Button } from '
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Favorite } from '@mui/icons-material';
 import { useStyles } from './Topbar.styles';
-import { currencies } from './currencies';
+import { cartData, currencies, favData } from './topbarDb';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import ListItemText from '@mui/material/ListItemText';
 import { SelectChangeEvent } from '@mui/material/Select';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 140,
-      border: 'none',
-    },
-  },
-};
+
 
 const Header: React.FC<Record<string, unknown>> = () => {
   const [language, setLanguage] = useState('English')
@@ -66,7 +56,6 @@ const Header: React.FC<Record<string, unknown>> = () => {
                 className={classes.selectSecond}
                 onChange={handleChange}
                 input={<OutlinedInput />}
-                MenuProps={MenuProps}
               >
                 {currencies.map((currency) => (
                   <MenuItem key={currency.id} value={currency.name} sx={{ padding: 0}}>
@@ -98,24 +87,17 @@ const Header: React.FC<Record<string, unknown>> = () => {
             onClose={() => setAnchorEl(null)}
             anchorEl={anchorEl}
             >
-              <MenuItem onClick={() => setAnchorEl(null)}>
-                <div className='productContainer'>
-                  <div className='productImage' />
-                  <div className='productDescription'>
-                    <p className='productName'>Denim Pullover</p>
-                    <p className='productPrice'>$ 37.03</p>
-                  </div>
-                </div>
-              </MenuItem>
-              <MenuItem onClick={() => setAnchorEl(null)}>
-              <div className='productContainer'>
-                <div className='productImage' />
-                <div className='productDescription'>
-                  <p className='productName'>Super Jacket</p>
-                  <p className='productPrice'>$ 90</p>
-                </div>
-              </div>
-              </MenuItem>
+                {cartData.map((item) => (
+                  <MenuItem key={item.id} value={item.name} onClick={() => setAnchorEl(null)} >
+                    <div className='productContainer'>
+                      <img className='productImage' src={item.url}/>
+                      <ListItemText className='productDescription' >
+                        <p className='productName'>{item.name}</p>
+                        <p className='productPrice'>{item.price}</p>
+                      </ListItemText>
+                    </div>
+                  </MenuItem>
+                ))}
               <MenuItem>
                 <Button 
                 sx={{backgroundColor: "rgb(255, 85, 0)", color: 'white', width: '300px'}}
@@ -142,15 +124,17 @@ const Header: React.FC<Record<string, unknown>> = () => {
             onClose={() => setAnchorElFav(null)}
             anchorEl={anchorElFav}
             >
-              <MenuItem onClick={() => setAnchorElFav(null)}>
-              <div className='productContainer'>
-                <div className='productImage' />
-                  <div className='productDescription'>
-                    <p className='productName'>Long Dress</p>
-                    <p className='productPrice'>$ 60</p>
-                  </div>
-              </div>
-              </MenuItem>
+              {favData.map((item) => (
+                  <MenuItem key={item.id} value={item.name} onClick={() => setAnchorElFav(null)} >
+                    <div className='productContainer'>
+                      <img className='productImage' src={item.url}/>
+                      <ListItemText className='productDescription' >
+                        <p className='productName'>{item.name}</p>
+                        <p className='productPrice'>{item.price}</p>
+                      </ListItemText>
+                    </div>
+                  </MenuItem>
+                ))}
               <MenuItem>
                 <Button 
                   sx={{backgroundColor: "rgb(255, 85, 0)", color: 'white', width: '300px'}}
