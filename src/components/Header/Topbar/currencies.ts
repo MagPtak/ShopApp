@@ -2,31 +2,31 @@ export const currencies = [
   {
     id: 1,
     name: "INR",
-    url: "../../../assets/inr.png",
+    url: require("../../../assets/inr.png"),
   },
   {
     id: 2,
     name: "USD",
-    url: "../../../assets/usd.png",
+    url: require("../../../assets/usd.png"),
   },
   {
     id: 3,
     name: "NZD",
-    url: "../../../assets/nzd.png",
+    url: require("../../../assets/nzd.png"),
   },
   {
     id: 4,
     name: "GMD",
-    url: "../../../assets/gmd.png",
+    url: require("../../../assets/gmd.png"),
   },
   {
     id: 5,
     name: "ILR",
-    url: "../../../assets/ilr.png",
+    url: require("../../../assets/ilr.png"),
   },
   {
     id: 6,
     name: "EUR",
-    url: "../../../assets/eur.png",
+    url: require("../../../assets/eur.png"),
   },
 ];

@@ -1,6 +1,6 @@
 .HeaderContainer {
   height: 50px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -46,19 +46,17 @@
   height: 35px;
 }
 
-.flagContainer p{
-  display: flex;
-  
-}
-
-/* .inr, .usd, .nzd, .gmd, .ilr, .eur {
-  height: 25px;
+.flagContainer img{
+  margin-right: 10px;
   width: 25px;
+  height: 25px;
   border-radius: 50%;
   background-size: 100%;
-  background-repeat: no-repeat;
-  margin-right: 10px;
-} */
+  object-fit: fill;
+
+}
+
+
 
 .cartButtonContainer,
 .favoriteButtonContainer,

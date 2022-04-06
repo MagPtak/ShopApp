@@ -5,16 +5,33 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Favorite } from '@mui/icons-material';
 import { useStyles } from './Topbar.styles';
 import { currencies } from './currencies';
-import SelectItem from './SelectItem/SelectItem';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import ListItemText from '@mui/material/ListItemText';
+import { SelectChangeEvent } from '@mui/material/Select';
 
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 140,
+      border: 'none',
+    },
+  },
+};
 
 const Header: React.FC<Record<string, unknown>> = () => {
   const [language, setLanguage] = useState('English')
-  const [currency, setCurrency] = useState("USD")
   const [anchorEl, setAnchorEl] = useState(null)
   const [anchorElFav, setAnchorElFav] = useState(null)
+  const [currency, setCurrency] = useState('USD');
 
   const classes = useStyles();
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setCurrency(event.target.value as string);
+  };
 
   return (
     <header className='HeaderContainer'>
@@ -28,7 +45,7 @@ const Header: React.FC<Record<string, unknown>> = () => {
               <Select
                 labelId="select-demo"
                 id="demo-simple-select"
-                sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500',}}
+                sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500'}}
                 className={classes.selectFirst}
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
@@ -39,24 +56,26 @@ const Header: React.FC<Record<string, unknown>> = () => {
             </FormControl>
           </div>
           <div className='currencyContainer'>
-            <FormControl fullWidth>
+           
+            <FormControl sx={{color: 'white', border: 'none', }}  >
               <Select
-                labelId="select-demo"
-                sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500'}}
-                className={classes.selectSecond}
+                sx={{borderRadius: 0, color: 'white'}}
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
                 value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
+                className={classes.selectSecond}
+                onChange={handleChange}
+                input={<OutlinedInput />}
+                MenuProps={MenuProps}
               >
-                <div>
-                  {currencies.map((currency) => (
-                    <li key={currency.id}>
-                      <SelectItem 
-                      name={currency.name}
-                      url={currency.url}
-                      />
-                    </li>
-                  ))}
-                </div>
+                {currencies.map((currency) => (
+                  <MenuItem key={currency.id} value={currency.name} sx={{ padding: 0}}>
+                    <div className='flagContainer'>
+                      <img src={currency.url}/>
+                      <ListItemText primary={currency.name} />
+                    </div>
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
           </div>

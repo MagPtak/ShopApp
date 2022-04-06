@@ -4,6 +4,7 @@ export const useStyles = makeStyles({
   selectFirst: {
     color: "white",
     height: "50px",
+    width: 160,
     borderRight: "1px solid grey",
     borderLeft: "1px solid grey",
     "& .MuiSvgIcon-root": {
@@ -14,6 +15,8 @@ export const useStyles = makeStyles({
     color: "white",
     fontWeight: "400",
     height: "50px",
+    width: 160,
+    alignContent: "center",
     borderRight: "1px solid grey",
     "& .MuiSvgIcon-root": {
       color: "white",
