@@ -1,5 +1,5 @@
 .categoryContainer{
-  height: 380px;
+  height: 600px;
   /* background-color: grey; */
   margin: 0 10% 20px 10%;
 
@@ -13,15 +13,16 @@
 .categoryContent{
   display: flex;
   justify-content: space-between;
-  height: 100%;
+  height: 85%;
 }
 
 .category{
-  height: 100%;
+  height: 90%;
   width: 23%;
   background-color: grey;
   border-radius: 7px;
-
+  border: none;
+  padding: 0;
 }
 
 .clothing, .shoes, .accessories, .gadgets{
@@ -31,6 +32,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
 }
 
 .clothing{
@@ -39,17 +42,14 @@
 
 .shoes{
   background-image: url("../../../../assets/category/shoes.jpg");
-  background-size: 100%;
 }
 
 .accessories{
   background-image: url("../../../../assets/category/accessories.jpg");
-  background-size: 100%;
 }
 
 .gadgets{
   background-image: url("../../../../assets/category/gadgets.jpg");
-  background-size: 100%;
 
 }
 
@@ -66,4 +66,9 @@
   font-weight: 300;
   color: white;
   margin: 10px 0 20px 20px;
+}
+
+@media screen and (max-width: 767px) {
+
+
 }

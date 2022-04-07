@@ -3,9 +3,9 @@ import Topbar from './Topbar/Topbar';
 import Search from './Search/Search';
 import Nav from './Nav/Nav';
 
-const PageContainer: React.FC<Record<string, unknown>> = () => { 
+const Header: React.FC<Record<string, unknown>> = () => { 
  return (
-    <div className='container'>
+    <div className='headerContainer'>
       <Topbar />
       <Search />
       <Nav />
@@ -13,4 +13,4 @@ const PageContainer: React.FC<Record<string, unknown>> = () => {
   )
 }
 
-export default PageContainer;
+export default Header;

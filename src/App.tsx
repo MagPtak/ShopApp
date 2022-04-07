@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Category from "./components/Category/Category";
 import Cart from "./components/Cart/Cart";
 import Product from "./components/Product";
+import Other from "./components/Other/Other";
 import "./index.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path={routerPaths.category} element={<Category />} />
         <Route path={routerPaths.product} element={<Product />}/>
         <Route path={routerPaths.cart} element={<Cart />} />
+        <Route path={routerPaths.other} element={<Other />} />
       </Routes>
     </Router>
   );

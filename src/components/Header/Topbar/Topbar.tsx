@@ -11,7 +11,7 @@ import { SelectChangeEvent } from '@mui/material/Select';
 
 
 
-const Header: React.FC<Record<string, unknown>> = () => {
+const Topbar: React.FC<Record<string, unknown>> = () => {
   const [language, setLanguage] = useState('English')
   const [anchorEl, setAnchorEl] = useState(null)
   const [anchorElFav, setAnchorElFav] = useState(null)
@@ -60,7 +60,7 @@ const Header: React.FC<Record<string, unknown>> = () => {
                 {currencies.map((currency) => (
                   <MenuItem key={currency.id} value={currency.name} sx={{ padding: 0}}>
                     <div className='flagContainer'>
-                      <img src={currency.url}/>
+                      <img src={currency.url} alt={currency.name}/>
                       <ListItemText primary={currency.name} />
                     </div>
                   </MenuItem>
@@ -153,4 +153,4 @@ const Header: React.FC<Record<string, unknown>> = () => {
   )
 }
 
-export default Header;
+export default Topbar;

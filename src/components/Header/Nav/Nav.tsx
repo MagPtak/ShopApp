@@ -19,6 +19,10 @@ const Nav: React.FC<Record<string, unknown>> = () => {
         backgroundColor: isActive ? "rgb(255, 85, 0)" : "rgb(48, 44, 136)"})}>
         CART
         </NavLink>
+        <NavLink to="/other" style={({isActive}) => ({
+        backgroundColor: isActive ? "rgb(255, 85, 0)" : "rgb(48, 44, 136)"})}>
+        OTHER
+        </NavLink>
       </div>
     </div>
   )

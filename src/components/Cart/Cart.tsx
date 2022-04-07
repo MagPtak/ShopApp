@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 
 const Cart: React.FC<Record<string, unknown>> = () => {
   return (
-    <div className='container'>
+    <div className='cartContainer'>
       <Header />
       Cart
     </div>
