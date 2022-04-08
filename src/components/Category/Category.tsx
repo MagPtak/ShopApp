@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import "./Category.css";
+
 
 
 const Category: React.FC<Record<string, unknown>> = () => {
@@ -8,7 +11,10 @@ const Category: React.FC<Record<string, unknown>> = () => {
   return (
     <div className='container'>
       <Header />
-      Category {name ? name : null}
+      <div className='categoryContent'>
+       Category {name ? name : null}
+      </div> 
+      <Footer />
       </div>
   )
 }
