@@ -72,25 +72,25 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
         <div className='rightSideContainer'>
           <div className='cartButtonContainer'>
             <IconButton 
-            className={classes.cartIcon}
-            aria-controls='menu'
-            onClick={(e: any) => setAnchorEl(e.currentTarget)}
+              className={classes.cartIcon}
+              aria-controls='menu'
+              onClick={(e: any) => setAnchorEl(e.currentTarget)}
             >
               <Badge badgeContent={2} color='error'>
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
             <Menu
-            id='menu'
-            keepMounted
-            open={Boolean(anchorEl)} 
-            onClose={() => setAnchorEl(null)}
-            anchorEl={anchorEl}
+              id='menu'
+              keepMounted
+              open={Boolean(anchorEl)} 
+              onClose={() => setAnchorEl(null)}
+              anchorEl={anchorEl}
             >
                 {cartData.map((item) => (
                   <MenuItem key={item.id} value={item.name} onClick={() => setAnchorEl(null)} >
                     <div className='productContainer'>
-                      <img className='productImage' src={item.url}/>
+                      <img className='productImage' src={item.url} alt={item.name}/>
                       <ListItemText className='productDescription' >
                         <p className='productName'>{item.name}</p>
                         <p className='productPrice'>{item.price}</p>
@@ -100,8 +100,8 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                 ))}
               <MenuItem>
                 <Button 
-                sx={{backgroundColor: "rgb(255, 85, 0)", color: 'white', width: '300px'}}
-                className={classes.menuButton}
+                  sx={{backgroundColor: "rgb(255, 85, 0)", color: 'white', width: '300px'}}
+                  className={classes.menuButton}
                 >
                   Checkout</Button>
               </MenuItem>
@@ -109,25 +109,25 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
           </div>
           <div className='favoriteButtonContainer'>
             <IconButton 
-            className={classes.cartIcon}
-            aria-controls='menu'
-            onClick={(e: any) => setAnchorElFav(e.currentTarget)}
+              className={classes.cartIcon}
+              aria-controls='menu'
+              onClick={(e: any) => setAnchorElFav(e.currentTarget)}
             >
               <Badge badgeContent={1} color='error'>
                 <Favorite />
               </Badge>
             </IconButton>
             <Menu
-            id='menu'
-            keepMounted
-            open={Boolean(anchorElFav)} 
-            onClose={() => setAnchorElFav(null)}
-            anchorEl={anchorElFav}
+              id='menu'
+              keepMounted
+              open={Boolean(anchorElFav)} 
+              onClose={() => setAnchorElFav(null)}
+              anchorEl={anchorElFav}
             >
               {favData.map((item) => (
                   <MenuItem key={item.id} value={item.name} onClick={() => setAnchorElFav(null)} >
                     <div className='productContainer'>
-                      <img className='productImage' src={item.url}/>
+                      <img className='productImage' src={item.url} alt={item.name}/>
                       <ListItemText className='productDescription' >
                         <p className='productName'>{item.name}</p>
                         <p className='productPrice'>{item.price}</p>

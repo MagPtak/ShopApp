@@ -8,10 +8,15 @@ import Cart from "./components/Cart/Cart";
 import Product from "./components/Product";
 import Other from "./components/Other/Other";
 import "./index.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
   return (
+    <div className="appWrapper">
     <Router>
+      <Header />
       <Routes>
         <Route path={routerPaths.home} element={<Home />} />
         <Route path={routerPaths.signin} element={<SignIn />}/>
@@ -22,7 +27,9 @@ function App() {
         <Route path={routerPaths.cart} element={<Cart />} />
         <Route path={routerPaths.other} element={<Other />} />
       </Routes>
+      <Footer />
     </Router>
+    </div>
   );
 }
 
