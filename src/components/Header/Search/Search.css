@@ -1,7 +1,7 @@
 .searchContainer {
   height: 150px;
   background-color: rgb(249, 249, 249);
-  color: #fff;
+  /* color: rgb(142, 138, 138); */
   font-size: 16px;
   font-weight: 500;
 }
@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.logoContainer p {
+.logo {
   margin: 0;
   color: black;
   font-size: 40px;

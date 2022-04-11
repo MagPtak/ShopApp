@@ -1,5 +1,6 @@
 import SearchIcon from '@mui/icons-material/Search';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./Search.css";
 
 const Search: React.FC<Record<string, unknown>> = () => {
@@ -8,7 +9,8 @@ const Search: React.FC<Record<string, unknown>> = () => {
     <div className='searchContainer'>
       <div className='searchContent'>
         <div className='logoContainer'>
-          <p>LOGO</p>
+          <Link to="/" className='logo'>LOGO</Link>
+
         </div>
         <div className='inputContainer'>
           <div className='box'>
