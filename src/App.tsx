@@ -2,14 +2,14 @@ import routerPaths from "./routerPaths";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import Home from "./components/Home/Home";
-import Category from "./components/Category/Category";
-import Cart from "./components/Cart/Cart";
+import Home from "./components/pages/Home/Home";
+import Category from "./components/pages/Category/Category";
+import Cart from "./components/pages/Cart/Cart";
 import Product from "./components/Product";
-import Other from "./components/Other/Other";
+import Other from "./components/pages/Other/Other";
 import "./index.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/pages/Header/Header";
+import Footer from "./components/pages/Footer/Footer";
 
 
 function App() {

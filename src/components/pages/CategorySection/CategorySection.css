@@ -37,19 +37,19 @@
 }
 
 .clothing{
-  background-image: url("../../assets/category/clothing.jpg");
+  background-image: url("../../../assets/category/clothing.jpg");
 }
 
 .shoes{
-  background-image: url("../../assets/category/shoes.jpg");
+  background-image: url("../../../assets/category/shoes.jpg");
 }
 
 .accessories{
-  background-image: url("../../assets/category/accessories.jpg");
+  background-image: url("../../../assets/category/accessories.jpg");
 }
 
 .gadgets{
-  background-image: url("../../assets/category/gadgets.jpg");
+  background-image: url("../../../assets/category/gadgets.jpg");
 
 }
 
