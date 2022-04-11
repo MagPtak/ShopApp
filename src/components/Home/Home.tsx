@@ -1,12 +1,12 @@
 import React from 'react';
 import Main from './Main/Main'
-import CategoryContainer from './Main/CategoryContainer/CategoryContainer';
+import CategorySection from '../CategorySection/CategorySection';
 
 const Home: React.FC<Record<string, unknown>> = () => { 
  return (
     <div className='container'>
       <Main />
-      <CategoryContainer />
+      <CategorySection />
     </div>
   )
 }

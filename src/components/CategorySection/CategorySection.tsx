@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./CategoryContainer.css";
-
-
+import "./CategorySection.css";
 
 const CategoryContainer: React.FC<Record<string, unknown>> = () => { 
  return (
