@@ -6,7 +6,7 @@ const CategoryContainer: React.FC<Record<string, unknown>> = () => {
  return (
     <div className='categoryContainer'>
       <p className='categoryHeading'>Shop By Category</p>
-      <div className='categoryContent'>
+      <div className='categorySectionContent'>
         <NavLink to="/category/clothing" className='category'>
          <div className='clothing'>
           <p className='categoryName'>Clothing</p>
@@ -32,7 +32,6 @@ const CategoryContainer: React.FC<Record<string, unknown>> = () => {
           </div>
         </NavLink>
       </div>
-     
     </div>
   )
 }

@@ -15,20 +15,22 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="appWrapper">
-    <Router>
-      <Header />
-      <Routes>
-        <Route path={routerPaths.home} element={<Home />} />
-        <Route path={routerPaths.signin} element={<SignIn />}/>
-        <Route path={routerPaths.signup} element={<SignUp />}/>
-        <Route path={routerPaths.categories} element={<Category />}/>
-        <Route path={routerPaths.category} element={<Category />} />
-        <Route path={routerPaths.product} element={<Product />}/>
-        <Route path={routerPaths.cart} element={<Cart />} />
-        <Route path={routerPaths.other} element={<Other />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <Header />
+        <div className="contentWrapper">
+          <Routes>
+            <Route path={routerPaths.home} element={<Home />} />
+            <Route path={routerPaths.signin} element={<SignIn />}/>
+            <Route path={routerPaths.signup} element={<SignUp />}/>
+            <Route path={routerPaths.categories} element={<Category />}/>
+            <Route path={routerPaths.category} element={<Category />} />
+            <Route path={routerPaths.product} element={<Product />}/>
+            <Route path={routerPaths.cart} element={<Cart />} />
+            <Route path={routerPaths.other} element={<Other />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </div>
   );
 }
