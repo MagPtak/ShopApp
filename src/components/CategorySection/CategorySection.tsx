@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "./CategorySection.css";
 
-const CategoryContainer: React.FC<Record<string, unknown>> = () => { 
+const CategorySection: React.FC<Record<string, unknown>> = () => { 
  return (
     <div className='categoryContainer'>
       <p className='categoryHeading'>Shop By Category</p>
@@ -36,5 +36,5 @@ const CategoryContainer: React.FC<Record<string, unknown>> = () => {
   )
 }
 
-export default CategoryContainer;
+export default CategorySection;
 

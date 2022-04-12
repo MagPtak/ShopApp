@@ -1,15 +1,15 @@
 import routerPaths from "./routerPaths";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import SignIn from "./components/pages/SignIn/SignIn";
+import SignUp from "./components/pages/SignUp/SignUp";
 import Home from "./components/pages/Home/Home";
 import Category from "./components/pages/Category/Category";
 import Cart from "./components/pages/Cart/Cart";
-import Product from "./components/Product";
+import Product from "./components/pages/Product/Product";
 import Other from "./components/pages/Other/Other";
 import "./index.css";
-import Header from "./components/pages/Header/Header";
-import Footer from "./components/pages/Footer/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
