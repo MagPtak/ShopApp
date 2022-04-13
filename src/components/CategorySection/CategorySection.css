@@ -78,3 +78,14 @@
     width: 23%;
   }
 }
+
+/* @media screen and (max-width: 576px) {
+  .categorySectionContent{
+    height: 85%;
+  }
+
+  .category{
+    height: 100%;
+    width: 23%;
+  }
+} */
