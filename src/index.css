@@ -9,6 +9,7 @@ body {
 
 .appWrapper{
   position: relative;
+  width: 100%;
 }
 
 .contentWrapper{

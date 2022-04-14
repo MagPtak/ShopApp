@@ -1,11 +1,12 @@
 import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles((theme: any) => ({
+  HeaderContainer: {
+    flexGrow: 1,
+  },
+
   selectFirst: {
     color: "white",
-    [theme.breakpoints.down("xs")]: {
-      color: "red",
-    },
     height: "50px",
     width: 160,
     borderRight: "1px solid grey",

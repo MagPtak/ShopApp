@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Topbar.css';
-import { FormControl, Select, MenuItem, IconButton, Badge, Menu, Button } from '@mui/material';
+import { FormControl, Select, MenuItem, IconButton, Badge, Menu, Button, Grid } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Favorite } from '@mui/icons-material';
 import { useStyles } from './Topbar.styles';
@@ -25,26 +25,25 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
       <header className='HeaderContainer'>
         <div className='HeaderContent'>
           <div className='leftSideContainer'>
-            <div className='welcomeContainer'>
+            <div  className='welcomeContainer'>
               <p>Welcome to our store</p>
             </div>  
             <div className='languageContainer'>
-              <FormControl fullWidth>
-                <Select
-                  labelId="select-demo"
-                  id="demo-simple-select"
-                  sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500'}}
-                  className={classes.selectFirst}
-                  value={language}
-                  onChange={(e) => setLanguage(e.target.value)}
-                >
-                  <MenuItem value={"English"}>English</MenuItem>
-                  <MenuItem value={"French"}>French</MenuItem>
-                </Select>
-              </FormControl>
+                <FormControl fullWidth>
+                  <Select
+                    labelId="select-demo"
+                    id="demo-simple-select"
+                    sx={{ color: 'white', borderRadius: 0, fontSize: '17px', fontWeight: '500'}}
+                    className={classes.selectFirst}
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                  >
+                    <MenuItem value={"English"}>English</MenuItem>
+                    <MenuItem value={"French"}>French</MenuItem>
+                  </Select>
+                </FormControl>
             </div>
             <div className='currencyContainer'>
-            
               <FormControl sx={{color: 'white', border: 'none', }}  >
                 <Select
                   sx={{borderRadius: 0, color: 'white'}}

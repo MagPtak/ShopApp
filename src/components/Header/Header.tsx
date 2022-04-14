@@ -6,7 +6,7 @@ import Nav from './Nav/Nav';
 
 const Header: React.FC<Record<string, unknown>> = () => { 
  return (
-    <div className='headerContainer'>
+    <div >
       <Topbar />
       <Search />
       <Nav />

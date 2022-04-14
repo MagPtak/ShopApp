@@ -103,7 +103,7 @@
 
 @media screen and (max-width: 576px) {
   .HeaderContainer {
-    height: 100px;
+    height: 50px;
     font-size: 24px;
   }
 
