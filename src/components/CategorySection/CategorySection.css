@@ -1,0 +1,91 @@
+.categoryContainer{
+  height: 700px;
+  margin: 0 10% 20px 10%;
+
+}
+
+.categoryHeading {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.categorySectionContent{
+  display: flex;
+  justify-content: space-between;
+  height: 85%;
+}
+
+.category{
+  height: 90%;
+  width: 23%;
+  background-color: grey;
+  border-radius: 7px;
+  border: none;
+  padding: 0;
+
+}
+
+.clothing, .shoes, .accessories, .gadgets{
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+
+.clothing{
+  background-image: url("../../assets/category/clothing.jpg");
+}
+
+.shoes{
+  background-image: url("../../assets/category/shoes.jpg");
+}
+
+.accessories{
+  background-image: url("../../assets/category/accessories.jpg");
+}
+
+.gadgets{
+  background-image: url("../../assets/category/gadgets.jpg");
+
+}
+
+
+.categoryName {
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+  margin: 0 0 0 20px;
+}
+
+.amount {
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+  margin: 10px 0 20px 20px;
+}
+
+@media screen and (min-width: 1441px) {
+  .categorySectionContent{
+    height: 85%;
+  }
+
+  .category{
+    height: 100%;
+    width: 23%;
+  }
+}
+
+/* @media screen and (max-width: 576px) {
+  .categorySectionContent{
+    height: 85%;
+  }
+
+  .category{
+    height: 100%;
+    width: 23%;
+  }
+} */
