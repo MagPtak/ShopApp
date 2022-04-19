@@ -1,20 +1,17 @@
-import Search from "../../elements/Search/Search"
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Search from "../../elements/Search/Search";
+import Logo from "../../elements/Logo/Logo";
+import React from "react";
 import "./MainSearch.css";
 
 const MainSearch: React.FC<Record<string, unknown>> = () => {
-
   return (
-    <div className='searchContainer'>
-      <div className='searchContent'>
-        <div className='logoContainer'>
-          <Link to="/" className='logo'>LOGO</Link>
-        </div>
-       <Search />
+    <div className="searchContainer">
+      <div className="searchContent">
+        <Logo />
+        <Search />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MainSearch;

@@ -11,7 +11,6 @@ import "./index.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-
 function App() {
   return (
     <div className="appWrapper">
@@ -20,11 +19,11 @@ function App() {
         <div className="contentWrapper">
           <Routes>
             <Route path={routerPaths.home} element={<Home />} />
-            <Route path={routerPaths.signin} element={<SignIn />}/>
-            <Route path={routerPaths.signup} element={<SignUp />}/>
-            <Route path={routerPaths.categories} element={<Category />}/>
+            <Route path={routerPaths.signin} element={<SignIn />} />
+            <Route path={routerPaths.signup} element={<SignUp />} />
+            <Route path={routerPaths.categories} element={<Category />} />
             <Route path={routerPaths.category} element={<Category />} />
-            <Route path={routerPaths.product} element={<Product />}/>
+            <Route path={routerPaths.product} element={<Product />} />
             <Route path={routerPaths.cart} element={<Cart />} />
             <Route path={routerPaths.other} element={<Other />} />
           </Routes>
