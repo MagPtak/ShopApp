@@ -1,28 +1,7 @@
-.searchContainer {
-  height: 150px;
-  background-color: rgb(249, 249, 249);
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.searchContent {
-  display: flex;
-  margin: 0 10% 0 10%;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.logoContainer,
 .inputContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.logo {
-  margin: 0;
-  color: black;
-  font-size: 40px;
 }
 
 .input {
