@@ -7,7 +7,7 @@ const MainSearch: React.FC<Record<string, unknown>> = () => {
   return (
     <div className="searchContainer">
       <div className="searchContent">
-        <Logo />
+        <Logo size={"40px"} />
         <Search />
       </div>
     </div>

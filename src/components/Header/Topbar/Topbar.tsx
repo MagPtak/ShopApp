@@ -8,7 +8,6 @@ import {
   Badge,
   Menu,
   Button,
-  Grid,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Favorite } from "@mui/icons-material";
