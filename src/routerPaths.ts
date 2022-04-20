@@ -7,6 +7,7 @@ const routerPaths = {
   product: "/product/:name",
   cart: "/cart",
   other: "/other",
+  profile: "/profile",
 };
 
 export default routerPaths;

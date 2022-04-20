@@ -2,6 +2,7 @@ import routerPaths from "./routerPaths";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import SignIn from "./components/pages/SignIn/SignIn";
 import SignUp from "./components/pages/SignUp/SignUp";
+import Profile from "./components/pages/Profile/Profile";
 import Home from "./components/pages/Home/Home";
 import Category from "./components/pages/Category/Category";
 import Cart from "./components/pages/Cart/Cart";
@@ -26,6 +27,7 @@ function App() {
             <Route path={routerPaths.product} element={<Product />} />
             <Route path={routerPaths.cart} element={<Cart />} />
             <Route path={routerPaths.other} element={<Other />} />
+            <Route path={routerPaths.profile} element={<Profile />} />
           </Routes>
         </div>
         <Footer />
