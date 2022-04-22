@@ -1,50 +1,27 @@
-import { Card, CardContent, Typography, Input, Button } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  TextField,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
-
-const useStyles = makeStyles({
-  card: {
-    height: 670,
-    width: 500,
-    marginTop: 100,
-    marginBottom: 100,
-  },
-  cardContent: {
-    margin: 20,
-  },
-  link: {
-    color: "darkblue",
-    fontWeight: 200,
-    fontSize: 16,
-    paddingLeft: 4,
-  },
-  div: {
-    display: "flex",
-    alignItems: "center",
-    marginTop: 25,
-  },
-  input: {
-    width: 428,
-    marginBottom: 15,
-    borderColor: "grey",
-  },
-  message: {
-    marginTop: 0,
-    marginBottom: 15,
-    fontWeight: 300,
-    fontSize: 14,
-    color: "red",
-  },
-});
+import { useStyles } from "./SignUp.styles";
+import routerPaths from "../../../routerPaths";
 
 const SignUp: React.FC<Record<string, unknown>> = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const password = useRef({});
+
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -55,7 +32,13 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
       retypePassword: "",
     },
   });
-  console.log(errors);
+
+  password.current = watch("password", "");
+
+  function handleLoginSubmit() {
+    navigate(routerPaths.profile);
+  }
+
   return (
     <div className="signUpContainer">
       <Card className={classes.card} sx={{ borderRadius: 3 }}>
@@ -63,48 +46,96 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
           <Typography sx={{ fontSize: 30, fontWeight: 400, marginBottom: 5 }}>
             Enter Your Details
           </Typography>
-          <form
-            onSubmit={handleSubmit((data) => {
-              console.log(data);
-            })}
-          >
-            <Input
+          <form onSubmit={handleSubmit(handleLoginSubmit)}>
+            <TextField
               placeholder="First Name *"
-              sx={{ fontSize: 20 }}
+              variant="standard"
+              InputProps={{
+                disableUnderline: true,
+                style: {
+                  fontSize: 20,
+                },
+              }}
+              sx={{
+                borderBottom: errors.password
+                  ? "1px solid red"
+                  : "1px solid grey",
+              }}
               className={classes.input}
               {...register("firstName", {
                 required: "Please fulfill marked fields.",
+                minLength: {
+                  value: 1,
+                  message: "Minimum length is 1",
+                },
               })}
-            ></Input>
+            ></TextField>
             <p className={classes.message}>{errors.firstName?.message}</p>
-            {/* // */}
-            <Input
+            <TextField
               placeholder="Last Name *"
-              sx={{ fontSize: 20 }}
+              variant="standard"
+              InputProps={{
+                disableUnderline: true,
+                style: {
+                  fontSize: 20,
+                },
+              }}
+              sx={{
+                borderBottom: errors.password
+                  ? "1px solid red"
+                  : "1px solid grey",
+              }}
               className={classes.input}
-              {...register("firstName", {
+              {...register("lastName", {
                 required: "Please fulfill marked fields.",
+                minLength: {
+                  value: 1,
+                  message: "Minimum length is 1",
+                },
               })}
-            ></Input>
-            <p className={classes.message}>{errors.firstName?.message}</p>
-            {/* // */}
-            <Input
-              type="email"
+            ></TextField>
+            <p className={classes.message}>{errors.lastName?.message}</p>
+            <TextField
+              variant="standard"
               autoComplete="username"
               placeholder="Email *"
-              sx={{ fontSize: 20 }}
+              InputProps={{
+                disableUnderline: true,
+                style: {
+                  fontSize: 20,
+                },
+              }}
+              sx={{
+                borderBottom: errors.password
+                  ? "1px solid red"
+                  : "1px solid grey",
+              }}
               className={classes.input}
-              {...register("firstName", {
+              {...register("email", {
                 required: "Please fulfill marked fields.",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
               })}
-            ></Input>
-            <p className={classes.message}>{errors.firstName?.message}</p>
-            {/* // */}
-            <Input
+            ></TextField>
+            <p className={classes.message}>{errors.email?.message}</p>
+            <TextField
               type="password"
+              variant="standard"
               autoComplete="new-password"
               placeholder="Password *"
-              sx={{ fontSize: 20 }}
+              InputProps={{
+                disableUnderline: true,
+                style: {
+                  fontSize: 20,
+                },
+              }}
+              sx={{
+                borderBottom: errors.password
+                  ? "1px solid red"
+                  : "1px solid grey",
+              }}
               className={classes.input}
               {...register("password", {
                 required: "Please fulfill marked fields.",
@@ -113,25 +144,33 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                   message: "Minimum length is 8",
                 },
               })}
-            ></Input>
+            ></TextField>
             <p className={classes.message}>{errors.password?.message}</p>
-            {/* // */}
-            <Input
+            <TextField
               type="password"
+              variant="standard"
               autoComplete="new-password"
               placeholder="Retype Password *"
-              sx={{ fontSize: 20 }}
+              InputProps={{
+                disableUnderline: true,
+                style: {
+                  fontSize: 20,
+                },
+              }}
+              sx={{
+                fontSize: 20,
+                borderBottom: errors.retypePassword
+                  ? "1px solid red"
+                  : "1px solid grey",
+              }}
               className={classes.input}
               {...register("retypePassword", {
                 required: "Please fulfill marked fields.",
-                minLength: {
-                  value: 8,
-                  message: "Minimum length is 8",
-                },
+                validate: (value) =>
+                  value === password.current || "The passwords do not match",
               })}
-            ></Input>
+            ></TextField>
             <p className={classes.message}>{errors.retypePassword?.message}</p>
-            {/* // */}
             <Button
               type="submit"
               sx={{
@@ -139,9 +178,10 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 color: "white",
                 width: "150px",
                 height: 50,
+                marginTop: 2,
               }}
             >
-              {/* <Link to="#">Sign Up</Link> */}
+              Sign Up
             </Button>
           </form>
           <div className={classes.div}>

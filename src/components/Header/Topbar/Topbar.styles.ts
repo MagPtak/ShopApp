@@ -35,10 +35,8 @@ export const useStyles = makeStyles((theme: any) => ({
   //Nie działa 😖
   menuButton: {
     "& .Mui-active": {
-      "& :active": {
-        backgroundColor: "black",
-        color: "orange",
-      },
+      backgroundColor: "black",
+      color: "orange",
     },
     marginRight: "0",
   },
