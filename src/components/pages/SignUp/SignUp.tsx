@@ -57,7 +57,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               }}
               sx={{
-                borderBottom: errors.password
+                borderBottom: errors.firstName
                   ? "1px solid red"
                   : "1px solid grey",
               }}
@@ -81,7 +81,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               }}
               sx={{
-                borderBottom: errors.password
+                borderBottom: errors.lastName
                   ? "1px solid red"
                   : "1px solid grey",
               }}
@@ -106,9 +106,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               }}
               sx={{
-                borderBottom: errors.password
-                  ? "1px solid red"
-                  : "1px solid grey",
+                borderBottom: errors.email ? "1px solid red" : "1px solid grey",
               }}
               className={classes.input}
               {...register("email", {
