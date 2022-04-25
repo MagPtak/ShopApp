@@ -177,6 +177,10 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 width: "150px",
                 height: 50,
                 marginTop: 2,
+                "&:hover": {
+                  backgroundColor: "rgb(255, 168, 124)",
+                  color: "black",
+                },
               }}
             >
               Sign Up

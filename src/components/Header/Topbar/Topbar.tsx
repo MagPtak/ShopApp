@@ -126,6 +126,10 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                     backgroundColor: "rgb(255, 85, 0)",
                     color: "white",
                     width: "300px",
+                    "&:hover": {
+                      backgroundColor: "rgb(255, 168, 124)",
+                      color: "black",
+                    },
                   }}
                   className={classes.menuButton}
                 >
@@ -176,6 +180,10 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                     backgroundColor: "rgb(255, 85, 0)",
                     color: "white",
                     width: "300px",
+                    "&:hover": {
+                      backgroundColor: "rgb(255, 168, 124)",
+                      color: "black",
+                    },
                   }}
                   className={classes.menuButton}
                 >
