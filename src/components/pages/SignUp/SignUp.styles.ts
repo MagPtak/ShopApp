@@ -15,6 +15,14 @@ export const useStyles = makeStyles({
     fontSize: 16,
     paddingLeft: 4,
   },
+  linkPasswordReminder: {
+    color: "darkblue",
+    fontWeight: 200,
+    fontSize: 16,
+    paddingLeft: 4,
+    marginLeft: 145,
+    paddingRight: 0,
+  },
   div: {
     display: "flex",
     alignItems: "center",
@@ -31,5 +39,10 @@ export const useStyles = makeStyles({
     fontWeight: 300,
     fontSize: 14,
     color: "red",
+  },
+  checkbox: {
+    "&$checked": {
+      color: "red",
+    },
   },
 });
