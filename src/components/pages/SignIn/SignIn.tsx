@@ -9,27 +9,35 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../SignUp/SignUp.css";
 import { useStyles } from "../SignUp/SignUp.styles";
 import { useState } from "react";
 import routerPaths from "../../../routerPaths";
-import useLocalStorage from "../../../hooks/useLocalStorage";
-import { Email, Password } from "@mui/icons-material";
+// import useLocalStorage from "../../../hooks/useLocalStorage";
+// import { Email, Password } from "@mui/icons-material";
 
 const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState(false);
-  const [user, setUser] = useLocalStorage("users", []);
+  // const [user, setUser] = useLocalStorage("users", [
+  //   {
+  //     id: "",
+  //     userName: "",
+  //     password: "",
+  //   },
+  // ]);
 
   const classes = useStyles();
   const navigate = useNavigate();
   const password = useRef({});
+  const email = useRef({});
 
   const {
     register,
     handleSubmit,
     watch,
+    getValues,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -38,8 +46,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
     },
   });
 
-  console.log(Password);
   password.current = watch("password", "");
+  email.current = watch("email", "");
 
   function handleLoginSubmit() {
     navigate(routerPaths.profile);
@@ -47,7 +55,37 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setChecked(event.target.checked);
+    addLocalStorage();
   }
+
+  function addLocalStorage() {
+    if (checked) {
+      let getLocalStorage = localStorage.getItem("users");
+      let users = [];
+      if (getLocalStorage === null) {
+        users = [];
+      } else {
+        users = JSON.parse(getLocalStorage);
+        // users.find(el => el.email.current !== email.current)
+      }
+
+      users.push([email.current, password.current]);
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  }
+
+  // useEffect(() => {
+  //   console.log("dupa", getValues());
+  // });
+
+  // function addUser(userName: string, password: string): any {
+  //   const newUser = {
+  //     id: password,
+  //     userName,
+  //     password,
+  //   };
+  //   setUser([...user, newUser]);
+  // }
 
   return (
     <div className="signUpContainer">
