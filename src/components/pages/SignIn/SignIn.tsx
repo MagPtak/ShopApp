@@ -55,12 +55,12 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setChecked(event.target.checked);
-    addLocalStorage();
   }
 
-  function addLocalStorage() {
+  function toggleLocalStorage() {
     if (checked) {
-      let getLocalStorage = localStorage.getItem("users");
+      localStorage.removeItem("credentials");
+      const getLocalStorage = localStorage.getItem("credentials");
       let users = [];
       if (getLocalStorage === null) {
         users = [];
@@ -68,24 +68,14 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
         users = JSON.parse(getLocalStorage);
         // users.find(el => el.email.current !== email.current)
       }
-
-      users.push([email.current, password.current]);
-      localStorage.setItem("users", JSON.stringify(users));
+      users.push(email.current, password.current);
+      localStorage.setItem("credentials", JSON.stringify(users));
     }
   }
 
-  // useEffect(() => {
-  //   console.log("dupa", getValues());
-  // });
-
-  // function addUser(userName: string, password: string): any {
-  //   const newUser = {
-  //     id: password,
-  //     userName,
-  //     password,
-  //   };
-  //   setUser([...user, newUser]);
-  // }
+  useEffect(() => {
+    toggleLocalStorage();
+  }, [checked]);
 
   return (
     <div className="signUpContainer">
