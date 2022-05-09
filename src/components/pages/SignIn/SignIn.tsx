@@ -19,13 +19,14 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const classes = useStyles();
   const navigate = useNavigate();
-  const password = useRef<string | number>();
-  const email = useRef<string | number>();
+  let password = useRef<string | number>();
+  let email = useRef<string | number>();
 
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -62,6 +63,15 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
     }
   };
 
+  const getDataFromStorage = () => {
+    const data = localStorage.getItem("credentials");
+    if (data) {
+      const storageData = JSON.parse(data);
+      setValue("email", storageData[0]);
+      setValue("password", storageData[1]);
+    }
+  };
+
   return (
     <div className="signUpContainer">
       <Card className={classes.card} sx={{ borderRadius: 3 }}>
@@ -71,6 +81,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
           </Typography>
           <form onSubmit={handleSubmit(handleLoginSubmit)}>
             <TextField
+              onClick={getDataFromStorage()}
               variant="standard"
               autoComplete="username"
               placeholder="Email *"
