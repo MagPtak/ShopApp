@@ -12,7 +12,7 @@ import "./index.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-function App() {
+const App = () => {
   return (
     <div className="appWrapper">
       <Router>
@@ -34,6 +34,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

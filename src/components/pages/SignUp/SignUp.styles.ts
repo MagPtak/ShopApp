@@ -40,11 +40,7 @@ export const useStyles = makeStyles({
     fontSize: 14,
     color: "rgb(255, 0, 0)",
   },
-  checkbox: {
-    "&$checked": {
-      color: "rgb(255, 0, 0)",
-    },
-  },
+
   // button: {
   //   button: {
   //     backgroundColor: "rgb(255, 85, 0)",

@@ -71,7 +71,7 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                   <MenuItem
                     key={currency.id}
                     value={currency.name}
-                    sx={{ padding: 0 }}
+                    sx={{ paddingLeft: 1 }}
                   >
                     <div className="flagContainer">
                       <img src={currency.url} alt={currency.name} />

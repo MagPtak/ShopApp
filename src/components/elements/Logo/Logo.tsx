@@ -6,7 +6,7 @@ interface Params {
   size: string;
 }
 
-function Logo({ size }: Params) {
+const Logo = ({ size }: Params) => {
   return (
     <div className="logoContainer">
       <Link to="/" className="logo" style={{ fontSize: size }}>
@@ -14,6 +14,6 @@ function Logo({ size }: Params) {
       </Link>
     </div>
   );
-}
+};
 
 export default Logo;
