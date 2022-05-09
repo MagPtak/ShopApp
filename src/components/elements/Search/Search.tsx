@@ -8,7 +8,7 @@ const Search: React.FC<Record<string, unknown>> = () => {
       <div className="box">
         <input className="input" type="text" placeholder="Search" required />
         <button className="button">
-          <SearchIcon sx={{ color: "black" }} />
+          <SearchIcon sx={{ color: "rgb(0,0,0)" }} />
         </button>
       </div>
     </div>

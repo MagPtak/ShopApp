@@ -10,13 +10,13 @@ export const useStyles = makeStyles({
     margin: 20,
   },
   link: {
-    color: "darkblue",
+    color: "rgb(0, 0, 139)",
     fontWeight: 200,
     fontSize: 16,
     paddingLeft: 4,
   },
   linkPasswordReminder: {
-    color: "darkblue",
+    color: "rgb(0, 0, 139)",
     fontWeight: 200,
     fontSize: 16,
     paddingLeft: 4,
@@ -31,18 +31,31 @@ export const useStyles = makeStyles({
   input: {
     width: 428,
     marginBottom: 15,
-    borderBottom: "1px solid white",
+    borderBottom: "1px solid rgb(0, 0, 139)",
   },
   message: {
     marginTop: 10,
     marginBottom: 15,
     fontWeight: 300,
     fontSize: 14,
-    color: "red",
+    color: "rgb(255, 0, 0)",
   },
   checkbox: {
     "&$checked": {
-      color: "red",
+      color: "rgb(255, 0, 0)",
     },
   },
+  // button: {
+  //   button: {
+  //     backgroundColor: "rgb(255, 85, 0)",
+  //     color: "rgb(250, 250, 250)",
+  //     width: "150px",
+  //     height: 50,
+  //     marginTop: 2,
+  //     "&:hover": {
+  //       backgroundColor: "rgb(255, 168, 124)",
+  //       color: "rgb(0, 0, 0)",
+  //     },
+  //   },
+  // },
 });

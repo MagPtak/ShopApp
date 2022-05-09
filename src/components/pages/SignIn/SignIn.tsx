@@ -9,35 +9,23 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../SignUp/SignUp.css";
 import { useStyles } from "../SignUp/SignUp.styles";
-import { useState } from "react";
+import "../SignUp/SignUp.css";
 import routerPaths from "../../../routerPaths";
-// import useLocalStorage from "../../../hooks/useLocalStorage";
-// import { Email, Password } from "@mui/icons-material";
 
 const SignIn: React.FC<Record<string, unknown>> = () => {
-  const [checked, setChecked] = useState(false);
-  // const [user, setUser] = useLocalStorage("users", [
-  //   {
-  //     id: "",
-  //     userName: "",
-  //     password: "",
-  //   },
-  // ]);
-
+  const [checked, setChecked] = useState<boolean>(false);
   const classes = useStyles();
   const navigate = useNavigate();
-  const password = useRef({});
-  const email = useRef({});
+  const password = useRef<string | number>();
+  const email = useRef<string | number>();
 
   const {
     register,
     handleSubmit,
     watch,
-    getValues,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -49,15 +37,16 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   password.current = watch("password", "");
   email.current = watch("email", "");
 
-  function handleLoginSubmit() {
+  const handleLoginSubmit = () => {
+    toggleLocalStorage();
     navigate(routerPaths.profile);
-  }
+  };
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
-  }
+  };
 
-  function toggleLocalStorage() {
+  const toggleLocalStorage = () => {
     if (checked) {
       localStorage.removeItem("credentials");
       const getLocalStorage = localStorage.getItem("credentials");
@@ -71,11 +60,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
       users.push(email.current, password.current);
       localStorage.setItem("credentials", JSON.stringify(users));
     }
-  }
-
-  useEffect(() => {
-    toggleLocalStorage();
-  }, [checked]);
+  };
 
   return (
     <div className="signUpContainer">
@@ -96,7 +81,9 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
                 },
               }}
               sx={{
-                borderBottom: errors.email ? "1px solid red" : "1px solid grey",
+                borderBottom: errors.email
+                  ? "1px solid rgb(250, 0, 0)"
+                  : "1px solid rgb(128,128,128)",
               }}
               className={classes.input}
               {...register("email", {
@@ -121,8 +108,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
               }}
               sx={{
                 borderBottom: errors.password
-                  ? "1px solid red"
-                  : "1px solid grey",
+                  ? "1px solid rgb(250, 0, 0)"
+                  : "1px solid 	rgb(128,128,128)",
               }}
               className={classes.input}
               {...register("password", {
@@ -152,15 +139,16 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
               </div>
               <Button
                 type="submit"
+                className={classes.button}
                 sx={{
                   backgroundColor: "rgb(255, 85, 0)",
-                  color: "white",
+                  color: "rgb(250, 250, 250)",
                   width: "150px",
                   height: 50,
                   marginTop: 2,
                   "&:hover": {
                     backgroundColor: "rgb(255, 168, 124)",
-                    color: "black",
+                    color: "rgb(0, 0, 0)",
                   },
                 }}
               >
