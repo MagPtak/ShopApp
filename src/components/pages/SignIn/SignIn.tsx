@@ -19,8 +19,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const classes = useStyles();
   const navigate = useNavigate();
-  const password = useRef<string | number>();
-  const email = useRef<string | number>();
+  const password = useRef<string | null>(null);
+  const email = useRef<string | null>(null);
 
   useEffect(() => {
     getDataFromStorage();
@@ -70,8 +70,9 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
     const data = localStorage.getItem("credentials");
     if (data) {
       const storageData = JSON.parse(data);
-      setValue("email", storageData[0]);
-      setValue("password", storageData[1]);
+      if (email.current === storageData[0]) {
+        setValue("password", storageData[1]);
+      }
     }
   };
 
@@ -109,6 +110,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
             ></TextField>
             <p className={classes.message}>{errors.email?.message}</p>
             <TextField
+              onClick={getDataFromStorage}
               type="password"
               variant="standard"
               autoComplete="new-password"
