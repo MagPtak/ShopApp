@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStyles } from "../SignUp/SignUp.styles";
 import "../SignUp/SignUp.css";
@@ -19,8 +19,12 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const classes = useStyles();
   const navigate = useNavigate();
-  let password = useRef<string | number>();
-  let email = useRef<string | number>();
+  const password = useRef<string | number>();
+  const email = useRef<string | number>();
+
+  useEffect(() => {
+    getDataFromStorage();
+  }, []);
 
   const {
     register,
@@ -56,7 +60,6 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
         users = [];
       } else {
         users = JSON.parse(getLocalStorage);
-        // users.find(el => el.email.current !== email.current)
       }
       users.push(email.current, password.current);
       localStorage.setItem("credentials", JSON.stringify(users));
@@ -81,7 +84,6 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
           </Typography>
           <form onSubmit={handleSubmit(handleLoginSubmit)}>
             <TextField
-              onClick={getDataFromStorage()}
               variant="standard"
               autoComplete="username"
               placeholder="Email *"
