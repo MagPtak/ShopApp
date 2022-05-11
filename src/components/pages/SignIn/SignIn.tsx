@@ -66,11 +66,22 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
     }
   };
 
+  const data = localStorage.getItem("credentials");
+
   const getDataFromStorage = () => {
-    const data = localStorage.getItem("credentials");
     if (data) {
       const storageData = JSON.parse(data);
       if (email.current === storageData[0]) {
+        setValue("password", storageData[1]);
+      }
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    // const data = localStorage.getItem("credentials");
+    if (data) {
+      const storageData = JSON.parse(data);
+      if (email.current === storageData[0] && event.key === "Tab") {
         setValue("password", storageData[1]);
       }
     }
@@ -111,6 +122,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
             <p className={classes.message}>{errors.email?.message}</p>
             <TextField
               onClick={getDataFromStorage}
+              onKeyDown={handleKeyDown}
               type="password"
               variant="standard"
               autoComplete="new-password"
