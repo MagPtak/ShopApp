@@ -60,6 +60,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.firstName
                   ? "1px solid rgb(255, 0, 0)"
                   : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("firstName", {
@@ -70,7 +71,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.firstName?.message}</p>
+            <label className={classes.message}>
+              {errors.firstName?.message}
+            </label>
             <TextField
               placeholder="Last Name *"
               variant="standard"
@@ -84,6 +87,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.lastName
                   ? "1px solid rgb(255, 0, 0)"
                   : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("lastName", {
@@ -94,7 +98,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.lastName?.message}</p>
+            <label className={classes.message}>
+              {errors.lastName?.message}
+            </label>
             <TextField
               variant="standard"
               autoComplete="username"
@@ -109,6 +115,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.email
                   ? "1px solid rgb(255, 0, 0)"
                   : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("email", {
@@ -119,7 +126,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.email?.message}</p>
+            <label className={classes.message}>{errors.email?.message}</label>
             <TextField
               type="password"
               variant="standard"
@@ -135,6 +142,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.password
                   ? "1px solid rgb(255, 0, 0)"
                   : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("password", {
@@ -145,7 +153,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.password?.message}</p>
+            <label className={classes.message}>
+              {errors.password?.message}
+            </label>
             <TextField
               type="password"
               variant="standard"
@@ -162,6 +172,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.retypePassword
                   ? "1px solid rgb(255, 0, 0)"
                   : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("retypePassword", {
@@ -170,7 +181,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                   value === password.current || "The passwords do not match",
               })}
             ></TextField>
-            <p className={classes.message}>{errors.retypePassword?.message}</p>
+            <label className={classes.message}>
+              {errors.retypePassword?.message}
+            </label>
             <Button
               type="submit"
               sx={{

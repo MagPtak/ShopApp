@@ -29,8 +29,8 @@ const Footer: React.FC<Record<string, unknown>> = () => {
           </div>
           <div className="column">
             <p className="title">SESSION</p>
-            <Link to="other">sign in</Link>
-            <Link to="other">register</Link>
+            <Link to="/signin">sign in</Link>
+            <Link to="/signup">register</Link>
             <Link to="other">forget password</Link>
             <Link to="other">thank you</Link>
           </div>

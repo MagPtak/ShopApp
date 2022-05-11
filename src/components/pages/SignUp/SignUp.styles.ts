@@ -35,13 +35,14 @@ export const useStyles = makeStyles({
 
   input: {
     width: 428,
-    marginBottom: 15,
     borderBottom: "1px solid rgb(0, 0, 139)",
   },
 
   message: {
-    marginTop: 10,
-    marginBottom: 15,
+    // marginTop: 10,
+    // marginBottom: 15,
+    marginBottom: 1,
+
     fontWeight: 300,
     fontSize: 14,
     color: "rgb(255, 0, 0)",

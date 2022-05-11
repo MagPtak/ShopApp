@@ -109,6 +109,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.email
                   ? "1px solid rgb(250, 0, 0)"
                   : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("email", {
@@ -119,7 +120,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.email?.message}</p>
+            <label className={classes.message}>{errors.email?.message}</label>
             <TextField
               onClick={getDataFromStorage}
               onKeyDown={handleKeyDown}
@@ -137,6 +138,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
                 borderBottom: errors.password
                   ? "1px solid rgb(250, 0, 0)"
                   : "1px solid 	rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("password", {
@@ -147,7 +149,9 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.password?.message}</p>
+            <label className={classes.message}>
+              {errors.password?.message}
+            </label>
             <div className="formBottom">
               <div className="checkbox">
                 <FormControlLabel

@@ -6,6 +6,11 @@
   min-height: calc(100vh - 550px);
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
 .formBottom {
   display: flex;
   flex-direction: column;
