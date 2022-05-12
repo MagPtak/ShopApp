@@ -1,7 +1,7 @@
 .navContainer {
   height: 60px;
   background-color: rgb(48, 44, 136);
-  color: #fff;
+  color: rgb(250,250,250);
   font-size: 16px;
   font-weight: 500;
 }
@@ -9,10 +9,10 @@
 .navContent{
   display: flex;
   align-items: center;
-  margin: 0 10% 0 10%;
+  margin: 0 10%;
   justify-content: flex-start;
   height: 100%;
-  color: #fff;
+  color: rgb(250,250,250)ff;
 
 }
 
@@ -21,7 +21,7 @@ a {
   align-items: center;
   height: 100%;
   padding: 0 30px 0 30px;
-  color: #fff;
+  color: rgb(250,250,250);
   font-size: 17px;
   font-weight: 600;
   text-decoration: none;

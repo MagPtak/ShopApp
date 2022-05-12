@@ -42,7 +42,7 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                 labelId="select-demo"
                 id="demo-simple-select"
                 sx={{
-                  color: "white",
+                  color: "rgb(250,250,250)",
                   borderRadius: 0,
                   fontSize: "17px",
                   fontWeight: "500",
@@ -57,9 +57,9 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
             </FormControl>
           </div>
           <div className="currencyContainer">
-            <FormControl sx={{ color: "white", border: "none" }}>
+            <FormControl sx={{ color: "rgb(250,250,250)", border: "none" }}>
               <Select
-                sx={{ borderRadius: 0, color: "white" }}
+                sx={{ borderRadius: 0, color: "rgb(250,250,250)" }}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={currency}
@@ -71,7 +71,7 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                   <MenuItem
                     key={currency.id}
                     value={currency.name}
-                    sx={{ padding: 0 }}
+                    sx={{ paddingLeft: 1 }}
                   >
                     <div className="flagContainer">
                       <img src={currency.url} alt={currency.name} />
@@ -124,11 +124,11 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                 <Button
                   sx={{
                     backgroundColor: "rgb(255, 85, 0)",
-                    color: "white",
+                    color: "rgb(250,250,250)",
                     width: "300px",
                     "&:hover": {
                       backgroundColor: "rgb(255, 168, 124)",
-                      color: "black",
+                      color: "rgb(0, 0, 0)",
                     },
                   }}
                   className={classes.menuButton}
@@ -178,11 +178,11 @@ const Topbar: React.FC<Record<string, unknown>> = () => {
                 <Button
                   sx={{
                     backgroundColor: "rgb(255, 85, 0)",
-                    color: "white",
+                    color: "rgb(250, 250, 250)",
                     width: "300px",
                     "&:hover": {
                       backgroundColor: "rgb(255, 168, 124)",
-                      color: "black",
+                      color: "rgb(0, 0, 0)",
                     },
                   }}
                   className={classes.menuButton}

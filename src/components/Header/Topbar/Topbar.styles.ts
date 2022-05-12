@@ -6,38 +6,33 @@ export const useStyles = makeStyles((theme: any) => ({
   },
 
   selectFirst: {
-    color: "white",
+    color: "rgb(255, 255, 255)",
     height: "50px",
     width: 160,
-    borderRight: "1px solid grey",
-    borderLeft: "1px solid grey",
+    borderRight: "1px solid rgb(128,128,128)",
+    borderLeft: "1px solid rgb(128,128,128)",
     "& .MuiSvgIcon-root": {
-      color: "white",
+      color: "rgb(250,250,250)",
     },
   },
   selectSecond: {
-    color: "white",
+    color: "rgb(250,250,250)",
     fontWeight: "400",
     height: "50px",
     width: 160,
     alignContent: "center",
-    borderRight: "1px solid grey",
+    borderRight: "1px solid rgb(128,128,128)",
     "& .MuiSvgIcon-root": {
-      color: "white",
+      color: "rgb(250,250,250)",
     },
   },
   cartIcon: {
     height: "50px",
     "& .MuiSvgIcon-root": {
-      color: "white",
+      color: "rgb(250,250,250)",
     },
   },
-  //Nie działa 😖
   menuButton: {
-    "& .Mui-active": {
-      backgroundColor: "black",
-      color: "orange",
-    },
     marginRight: "0",
   },
 }));

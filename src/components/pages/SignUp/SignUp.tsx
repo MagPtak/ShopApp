@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SignUp.css";
 import { useStyles } from "./SignUp.styles";
 import routerPaths from "../../../routerPaths";
+import "./SignUp.css";
 
 const SignUp: React.FC<Record<string, unknown>> = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  const password = useRef({});
+  const password = useRef<string | number>();
 
   const {
     register,
@@ -35,9 +35,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
 
   password.current = watch("password", "");
 
-  function handleLoginSubmit() {
+  const handleLoginSubmit = () => {
     navigate(routerPaths.profile);
-  }
+  };
 
   return (
     <div className="signUpContainer">
@@ -58,8 +58,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
               }}
               sx={{
                 borderBottom: errors.firstName
-                  ? "1px solid red"
-                  : "1px solid grey",
+                  ? "1px solid rgb(255, 0, 0)"
+                  : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("firstName", {
@@ -70,7 +71,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.firstName?.message}</p>
+            <label className={classes.message}>
+              {errors.firstName?.message}
+            </label>
             <TextField
               placeholder="Last Name *"
               variant="standard"
@@ -82,8 +85,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
               }}
               sx={{
                 borderBottom: errors.lastName
-                  ? "1px solid red"
-                  : "1px solid grey",
+                  ? "1px solid rgb(255, 0, 0)"
+                  : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("lastName", {
@@ -94,7 +98,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.lastName?.message}</p>
+            <label className={classes.message}>
+              {errors.lastName?.message}
+            </label>
             <TextField
               variant="standard"
               autoComplete="username"
@@ -106,7 +112,10 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               }}
               sx={{
-                borderBottom: errors.email ? "1px solid red" : "1px solid grey",
+                borderBottom: errors.email
+                  ? "1px solid rgb(255, 0, 0)"
+                  : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("email", {
@@ -117,7 +126,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.email?.message}</p>
+            <label className={classes.message}>{errors.email?.message}</label>
             <TextField
               type="password"
               variant="standard"
@@ -131,8 +140,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
               }}
               sx={{
                 borderBottom: errors.password
-                  ? "1px solid red"
-                  : "1px solid grey",
+                  ? "1px solid rgb(255, 0, 0)"
+                  : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("password", {
@@ -143,7 +153,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                 },
               })}
             ></TextField>
-            <p className={classes.message}>{errors.password?.message}</p>
+            <label className={classes.message}>
+              {errors.password?.message}
+            </label>
             <TextField
               type="password"
               variant="standard"
@@ -158,8 +170,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
               sx={{
                 fontSize: 20,
                 borderBottom: errors.retypePassword
-                  ? "1px solid red"
-                  : "1px solid grey",
+                  ? "1px solid rgb(255, 0, 0)"
+                  : "1px solid rgb(128,128,128)",
+                marginBottom: 1,
               }}
               className={classes.input}
               {...register("retypePassword", {
@@ -168,18 +181,20 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
                   value === password.current || "The passwords do not match",
               })}
             ></TextField>
-            <p className={classes.message}>{errors.retypePassword?.message}</p>
+            <label className={classes.message}>
+              {errors.retypePassword?.message}
+            </label>
             <Button
               type="submit"
               sx={{
                 backgroundColor: "rgb(255, 85, 0)",
-                color: "white",
+                color: "rgb(255, 255, 255)",
                 width: "150px",
                 height: 50,
                 marginTop: 2,
                 "&:hover": {
                   backgroundColor: "rgb(255, 168, 124)",
-                  color: "black",
+                  color: "rgb(0, 0, 0)",
                 },
               }}
             >

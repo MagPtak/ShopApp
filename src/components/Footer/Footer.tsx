@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer: React.FC<Record<string, unknown>> = () => {
   return (
-    <div className="footerContainer">
+    <footer className="footerContainer">
       <div className="footerContent">
         <div className="aboutContainer">
           <p className="about">ABOUT COMPANY</p>
@@ -29,8 +29,8 @@ const Footer: React.FC<Record<string, unknown>> = () => {
           </div>
           <div className="column">
             <p className="title">SESSION</p>
-            <Link to="other">sign in</Link>
-            <Link to="other">register</Link>
+            <Link to="/signin">sign in</Link>
+            <Link to="/signup">register</Link>
             <Link to="other">forget password</Link>
             <Link to="other">thank you</Link>
           </div>
@@ -50,7 +50,7 @@ const Footer: React.FC<Record<string, unknown>> = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
