@@ -3,7 +3,7 @@ import "./Main.css";
 
 const Main: React.FC<{}> = () => {
   return (
-    <div className="mainContainer">
+    <main className="mainContainer">
       <div className="mainContent">
         <div className="mainPhoto">
           <div className="description">
@@ -15,7 +15,7 @@ const Main: React.FC<{}> = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

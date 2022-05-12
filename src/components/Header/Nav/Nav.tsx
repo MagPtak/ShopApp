@@ -4,7 +4,7 @@ import "./Nav.css";
 
 const Nav: React.FC<Record<string, unknown>> = () => {
   return (
-    <div className="navContainer">
+    <nav className="navContainer">
       <div className="navContent">
         <NavLink
           to="/"
@@ -39,7 +39,7 @@ const Nav: React.FC<Record<string, unknown>> = () => {
           OTHER
         </NavLink>
       </div>
-    </div>
+    </nav>
   );
 };
 
