@@ -96,6 +96,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
           </Typography>
           <form onSubmit={handleSubmit(handleLoginSubmit)}>
             <TextField
+              onKeyDown={handleKeyDown}
               variant="standard"
               autoComplete="username"
               placeholder="Email *"
@@ -123,7 +124,6 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
             <label className={classes.message}>{errors.email?.message}</label>
             <TextField
               onClick={getDataFromStorage}
-              onKeyDown={handleKeyDown}
               type="password"
               variant="standard"
               autoComplete="new-password"
