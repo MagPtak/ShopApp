@@ -66,9 +66,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
     }
   };
 
-  const data = localStorage.getItem("credentials");
-
   const getDataFromStorage = () => {
+    const data = localStorage.getItem("credentials");
     if (data) {
       const storageData = JSON.parse(data);
       if (email.current === storageData[0]) {
@@ -78,12 +77,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    // const data = localStorage.getItem("credentials");
-    if (data) {
-      const storageData = JSON.parse(data);
-      if (email.current === storageData[0] && event.key === "Tab") {
-        setValue("password", storageData[1]);
-      }
+    if (event.key === "Tab") {
+      getDataFromStorage();
     }
   };
 
