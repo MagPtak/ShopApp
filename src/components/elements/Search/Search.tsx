@@ -4,7 +4,7 @@ import "./Search.css";
 
 const Search: React.FC<Record<string, unknown>> = () => {
   return (
-    <div className="inputContainer">
+    <div className="input-search">
       <div className="search">
         <input
           className="search__input"

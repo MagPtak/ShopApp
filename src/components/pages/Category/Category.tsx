@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Category.css";
 
 const Category: React.FC<Record<string, unknown>> = () => {
-  let { name } = useParams();
+  const { name } = useParams();
   let imageClassName;
 
   // if (name === "clothing") {
@@ -30,7 +30,10 @@ const Category: React.FC<Record<string, unknown>> = () => {
     <article className="container">
       <div className="categoryContent">
         <div className={imageClassName}>
-          <p>Category {name ? name : null}</p>
+          <p className="nameLarge">{name ? name : null}</p>
+          <p className="nameDescription">
+            Choose The Wide Range Of Best {name}
+          </p>
         </div>
       </div>
     </article>
