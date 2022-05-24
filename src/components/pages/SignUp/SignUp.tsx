@@ -5,6 +5,7 @@ import {
   Button,
   TextField,
 } from "@mui/material";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import React, { useRef } from "react";
@@ -17,6 +18,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const password = useRef<string | number>();
+  const email = useRef<string | null>();
+  const firstName = useRef<string | null>();
+  const lastName = useRef<string | null>();
 
   const {
     register,
@@ -35,8 +39,23 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
 
   password.current = watch("password", "");
 
-  const handleLoginSubmit = () => {
-    navigate(routerPaths.profile);
+  const handleRegisterSubmit = () => {
+    console.log("register");
+
+    axios
+      .post("http://localhost:9595/app/auth/register", {
+        firstname: firstName.current,
+        lastname: lastName.current,
+        username: email.current,
+        password: password.current,
+      })
+      .then(function (response: any) {
+        console.log(response);
+        navigate(routerPaths.profile);
+      })
+      .catch(function (error: any) {
+        console.log(error);
+      });
   };
 
   return (
@@ -46,7 +65,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
           <Typography sx={{ fontSize: 30, fontWeight: 400, marginBottom: 5 }}>
             Enter Your Details
           </Typography>
-          <form onSubmit={handleSubmit(handleLoginSubmit)}>
+          <form onSubmit={handleSubmit(handleRegisterSubmit)}>
             <TextField
               placeholder="First Name *"
               variant="standard"

@@ -7,6 +7,7 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import React, { useEffect, useRef, useState } from "react";
@@ -17,12 +18,21 @@ import routerPaths from "../../../routerPaths";
 
 const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
+  const [token, setToken] = useState<any>();
   const classes = useStyles();
   const navigate = useNavigate();
   const password = useRef<string | null>(null);
   const email = useRef<string | null>(null);
 
   useEffect(() => {
+    // axios
+    //   .get("http://localhost:9595/products")
+    //   .then(function (response: any) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error: any) {
+    //     console.log(error);
+    //   });
     getDataFromStorage();
   }, []);
 
@@ -43,8 +53,22 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
 
   const handleLoginSubmit = () => {
-    toggleLocalStorage();
-    navigate(routerPaths.profile);
+    console.log("login");
+
+    axios
+      .post("http://localhost:9595/app/auth/login", {
+        username: email.current,
+        password: password.current,
+      })
+      .then(function (response: any) {
+        setToken(Object.values(response.data));
+        console.log(token);
+        toggleLocalStorage();
+        navigate(routerPaths.profile);
+      })
+      .catch(function (error: any) {
+        console.log(error);
+      });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -139,8 +163,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
               {...register("password", {
                 required: "Please fulfill marked fields.",
                 minLength: {
-                  value: 8,
-                  message: "Minimum length is 8",
+                  value: 5,
+                  message: "Minimum length is 5",
                 },
               })}
             ></TextField>
