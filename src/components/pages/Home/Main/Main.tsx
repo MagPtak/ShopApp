@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.css";
 
-const Main: React.FC<{}> = () => {
+const Main: React.FC<Record<string, unknown>> = () => {
   return (
     <main className="mainContainer">
       <div className="mainContent">
