@@ -12,19 +12,19 @@
     "react-app/jest"
   ],
   "rules": { 
-    "jsx-quotes": ["warn", "prefer-single"],
-        "react/jsx-filename-extension": [2, { "extensions": [
-            ".js", ".jsx", ".ts", ".tsx"
-        ] }],
-        "no-use-before-define": "off",
-        "react/react-in-jsx-scope": "off", 
-        "react/prop-types":"off",
-        "import/prefer-default-export": "off",
-        "react/destructuring-assignment": "off",
-        "react/no-children-prop": "off",
-        "no-unused-vars": ["warn"],
-        "eqeqeq": 1,
-        "indent": ["error", 2]
+    "jsx-quotes": ["warn", "prefer-double"],
+      "react/jsx-filename-extension": [2, { "extensions": [
+        ".js", ".jsx", ".ts", ".tsx"
+      ] }],
+      "no-use-before-define": "off",
+      "react/react-in-jsx-scope": "off", 
+      "react/prop-types":"off",
+      "import/prefer-default-export": "off",
+      "react/destructuring-assignment": "off",
+      "react/no-children-prop": "off",
+      "no-unused-vars": ["warn"],
+      "eqeqeq": 1,
+      "indent": ["error", 2]
   }
 
 }
