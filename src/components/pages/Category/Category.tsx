@@ -6,16 +6,6 @@ const Category: React.FC<Record<string, unknown>> = () => {
   const { name } = useParams();
   let imageClassName;
 
-  // if (name === "clothing") {
-  //   image = "../../../assets/category/clothing.jpg";
-  // } else if (name === "shoes") {
-  //   image = "../../../assets/category/shoes.jpg";
-  // } else if (name === "accessories") {
-  //   image = "../../../assets/category/accessories.jpg";
-  // } else {
-  //   image = "../../../assets/category/gadgets.jpg";
-  // }
-
   if (name === "clothing") {
     imageClassName = "clothingImage";
   } else if (name === "shoes") {
