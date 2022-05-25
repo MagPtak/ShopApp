@@ -61,6 +61,7 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
         password: password.current,
       })
       .then(function (response: any) {
+        console.log(response);
         setToken(Object.values(response.data));
         console.log(token);
         toggleLocalStorage();

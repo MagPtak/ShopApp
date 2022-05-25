@@ -17,10 +17,10 @@ import "./SignUp.css";
 const SignUp: React.FC<Record<string, unknown>> = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  const password = useRef<string | number>();
-  const email = useRef<string | null>();
   const firstName = useRef<string | null>();
   const lastName = useRef<string | null>();
+  const email = useRef<string | null>();
+  const password = useRef<string | number>();
 
   const {
     register,
@@ -37,6 +37,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
     },
   });
 
+  firstName.current = watch("firstName", "");
+  lastName.current = watch("lastName", "");
+  email.current = watch("email", "");
   password.current = watch("password", "");
 
   const handleRegisterSubmit = () => {
@@ -167,8 +170,8 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
               {...register("password", {
                 required: "Please fulfill marked fields.",
                 minLength: {
-                  value: 8,
-                  message: "Minimum length is 8",
+                  value: 5,
+                  message: "Minimum length is 5",
                 },
               })}
             ></TextField>
