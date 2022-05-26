@@ -22,7 +22,7 @@ const Profile: React.FC = () => {
           console.log(error);
         });
   }, [accessToken]);
-  return <div>Profile: {username ? username : ""} </div>;
+  return <div>Logged as: {username ? username : ""} </div>;
 };
 
 export default Profile;

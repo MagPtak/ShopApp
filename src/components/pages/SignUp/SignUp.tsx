@@ -50,10 +50,8 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
         username: email.current,
         password: password.current,
       })
-      .then(function (response: any) {
-        navigate(routerPaths.profile, {
-          state: { accessToken: response.data.access_token },
-        });
+      .then(function () {
+        navigate(routerPaths.signin);
       })
       .catch(function (error: any) {
         console.log(error);
