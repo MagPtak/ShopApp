@@ -15,26 +15,16 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "../SignUp/SignUp.styles";
 import "../SignUp/SignUp.css";
 import routerPaths from "../../../routerPaths";
-import { useAuth } from "../../../helpers/hooks";
 
 const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
-  // const [token, setToken] = useState<any>();
-  const { token, setToken } = useAuth();
+
   const classes = useStyles();
   const navigate = useNavigate();
   const password = useRef<string | null>(null);
   const email = useRef<string | null>(null);
 
   useEffect(() => {
-    // axios
-    //   .get("http://localhost:9595/products")
-    //   .then(function (response: any) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error: any) {
-    //     console.log(error);
-    //   });
     getDataFromStorage();
   }, []);
 
@@ -55,19 +45,16 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
 
   const handleLoginSubmit = () => {
-    console.log("login");
-
     axios
       .post("http://localhost:9595/app/auth/login", {
         username: email.current,
         password: password.current,
       })
       .then(function (response: any) {
-        console.log(response);
-        setToken(Object.values(response.data));
-        console.log(token);
         toggleLocalStorage();
-        navigate(routerPaths.profile);
+        navigate(routerPaths.profile, {
+          state: { accessToken: response.data.access_token },
+        });
       })
       .catch(function (error: any) {
         console.log(error);

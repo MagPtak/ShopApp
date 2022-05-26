@@ -43,8 +43,6 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
   password.current = watch("password", "");
 
   const handleRegisterSubmit = () => {
-    console.log("register");
-
     axios
       .post("http://localhost:9595/app/auth/register", {
         firstname: firstName.current,
@@ -53,8 +51,9 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
         password: password.current,
       })
       .then(function (response: any) {
-        console.log(response);
-        navigate(routerPaths.profile);
+        navigate(routerPaths.profile, {
+          state: { accessToken: response.data.access_token },
+        });
       })
       .catch(function (error: any) {
         console.log(error);
