@@ -6,23 +6,42 @@ import { LocationState } from "../../../components/model/interfaces";
 const Profile: React.FC = () => {
   const location = useLocation();
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [lastname, setLastname] = useState("");
   const { accessToken } = location.state as LocationState;
-  useEffect(() => {
+
+  const getUserData = () => {
     accessToken &&
       axios
         .get("http://localhost:9595/app/profile", {
           headers: { Authorization: `Bearer ${accessToken}` },
         })
-        .then(function (response: any) {
+        .then((response: any) => {
           console.log("response", response);
           let name = response.data.firstname;
+          let surname = response.data.lastname;
+          let userEmail = response.data.username;
+
           setUsername(name);
+          setEmail(userEmail);
+          setLastname(surname);
         })
-        .catch(function (error: any) {
+        .catch((error: any) => {
           console.log(error);
         });
+  };
+
+  useEffect(() => {
+    getUserData();
   }, [accessToken]);
-  return <div>Logged as: {username ? username : ""} </div>;
+  return (
+    <>
+      <div>
+        {username ? username : ""} {lastname ? lastname : ""}
+      </div>
+      <div>{email ? email : ""} </div>
+    </>
+  );
 };
 
 export default Profile;

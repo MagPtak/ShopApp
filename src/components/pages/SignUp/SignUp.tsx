@@ -42,7 +42,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
   password.current = watch("password", "");
 
-  const handleRegisterSubmit = () => {
+  const registerUser = () => {
     axios
       .post("http://localhost:9595/app/auth/register", {
         firstname: firstName.current,
@@ -50,12 +50,16 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
         username: email.current,
         password: password.current,
       })
-      .then(function () {
+      .then(() => {
         navigate(routerPaths.signin);
       })
-      .catch(function (error: any) {
+      .catch((error: any) => {
         console.log(error);
       });
+  };
+
+  const handleRegisterSubmit = () => {
+    registerUser();
   };
 
   return (

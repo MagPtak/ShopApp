@@ -15,9 +15,11 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "../SignUp/SignUp.styles";
 import "../SignUp/SignUp.css";
 import routerPaths from "../../../routerPaths";
+import { AuthService } from "../../../services/AuthService";
 
 const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
+  const authService = new AuthService();
 
   const classes = useStyles();
   const navigate = useNavigate();
@@ -45,20 +47,13 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
 
   const handleLoginSubmit = () => {
-    axios
-      .post("http://localhost:9595/app/auth/login", {
-        username: email.current,
-        password: password.current,
-      })
-      .then(function (response: any) {
-        toggleLocalStorage();
-        navigate(routerPaths.profile, {
-          state: { accessToken: response.data.access_token },
-        });
-      })
-      .catch(function (error: any) {
-        console.log(error);
+    authService.login(email, password).then((response: any) => {
+      toggleLocalStorage();
+      console.log(response);
+      navigate(routerPaths.profile, {
+        state: { accessToken: response.data.access_token },
       });
+    });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
