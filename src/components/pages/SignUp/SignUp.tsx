@@ -5,7 +5,6 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import React, { useRef } from "react";
@@ -44,7 +43,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
   password.current = watch("password", "");
 
-  const registerUser = () => {
+  const handleRegisterSubmit = () => {
     authService
       .registerUser(
         firstName.current!,
@@ -58,10 +57,6 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
       .catch((error: any) => {
         console.log(error);
       });
-  };
-
-  const handleRegisterSubmit = () => {
-    registerUser();
   };
 
   return (

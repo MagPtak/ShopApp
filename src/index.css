@@ -10,8 +10,16 @@ body {
 .appWrapper{
   position: relative;
   width: 100%;
+  min-height: 100vh;
 }
 
+
 .contentWrapper{
-  padding-bottom: 290px;
+  padding-bottom: 250px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 250px;
 }

@@ -30,7 +30,9 @@ const App = () => {
             <Route path={routerPaths.profile} element={<Profile />} />
           </Routes>
         </div>
-        <Footer />
+        <div className="footer">
+          <Footer />
+        </div>
       </Router>
     </div>
   );

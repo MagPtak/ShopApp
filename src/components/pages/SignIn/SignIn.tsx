@@ -7,7 +7,6 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import React, { useEffect, useRef, useState } from "react";

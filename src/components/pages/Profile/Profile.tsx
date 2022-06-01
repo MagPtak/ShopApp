@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { LocationState } from "../../../components/model/interfaces";
+import "./Profile.css";
 
 const Profile: React.FC = () => {
   const location = useLocation();
@@ -36,10 +37,12 @@ const Profile: React.FC = () => {
   }, [accessToken]);
   return (
     <>
-      <div>
-        {username ? username : ""} {lastname ? lastname : ""}
+      <div className="profileContainer">
+        <div>
+          {username ? username : ""} {lastname ? lastname : ""}
+        </div>
+        <div>{email ? email : ""} </div>
       </div>
-      <div>{email ? email : ""} </div>
     </>
   );
 };
