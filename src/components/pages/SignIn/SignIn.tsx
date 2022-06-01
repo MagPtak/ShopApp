@@ -47,13 +47,15 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
 
   const handleLoginSubmit = () => {
-    authService.login(email, password).then((response: any) => {
-      toggleLocalStorage();
-      console.log(response);
-      navigate(routerPaths.profile, {
-        state: { accessToken: response.data.access_token },
+    authService
+      .login(email.current!, password.current!)
+      .then((response: any): void => {
+        toggleLocalStorage();
+        console.log(response);
+        navigate(routerPaths.profile, {
+          state: { accessToken: response.data.access_token },
+        });
       });
-    });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

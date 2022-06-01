@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "./SignUp.styles";
 import routerPaths from "../../../routerPaths";
 import "./SignUp.css";
+import { AuthService } from "../../../services/AuthService";
 
 const SignUp: React.FC<Record<string, unknown>> = () => {
   const classes = useStyles();
@@ -21,6 +22,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
   const lastName = useRef<string | null>();
   const email = useRef<string | null>();
   const password = useRef<string | number>();
+  const authService = new AuthService();
 
   const {
     register,
@@ -43,13 +45,13 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
   password.current = watch("password", "");
 
   const registerUser = () => {
-    axios
-      .post("http://localhost:9595/app/auth/register", {
-        firstname: firstName.current,
-        lastname: lastName.current,
-        username: email.current,
-        password: password.current,
-      })
+    authService
+      .registerUser(
+        firstName.current!,
+        lastName.current!,
+        email.current!,
+        password.current!
+      )
       .then(() => {
         navigate(routerPaths.signin);
       })
