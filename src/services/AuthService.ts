@@ -10,11 +10,6 @@ export class AuthService {
         password: password,
       })
       .then((response: AxiosResponse) => {
-        console.log("response", response);
-        console.log("bodyReq:", {
-          username: email,
-          password: password,
-        });
         return response;
       })
       .catch((error: AxiosError) => {
@@ -37,13 +32,6 @@ export class AuthService {
         password: password,
       })
       .then((response: AxiosResponse) => {
-        console.log("response", response);
-        console.log("bodyReq:", {
-          firstname: firstName,
-          lastname: lastName,
-          username: email,
-          password: password,
-        });
         return response;
       })
       .catch((error: AxiosError) => {

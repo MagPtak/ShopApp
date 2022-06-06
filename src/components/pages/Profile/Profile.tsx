@@ -18,10 +18,9 @@ const Profile: React.FC = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         })
         .then((response: any) => {
-          console.log("response", response);
-          let name = response.data.firstname;
-          let surname = response.data.lastname;
-          let userEmail = response.data.username;
+          const name = response.data.firstname;
+          const surname = response.data.lastname;
+          const userEmail = response.data.username;
 
           setUsername(name);
           setEmail(userEmail);

@@ -50,7 +50,6 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
       .login(email.current!, password.current!)
       .then((response: any): void => {
         toggleLocalStorage();
-        console.log(response);
         navigate(routerPaths.profile, {
           state: { accessToken: response.data.access_token },
         });
