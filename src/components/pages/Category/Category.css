@@ -1,3 +1,46 @@
 .categoryContent{
-  height: calc(100vh - 550px);
+  height: calc(100vh - 260px);
+ 
+}
+
+.clothingImage, .shoesImage, .accessoriesImage, .gadgetsImage {
+  height: 600px;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.clothingImage {
+  background-image: url("../../../assets/category-main/clothes.jpg");
+}
+
+.shoesImage {
+  background-image: url("../../../assets/category-main/shoes.jpg");
+}
+
+.accessoriesImage {
+  background-image: url("../../../assets/category-main/accessories.jpg");
+}
+
+.gadgetsImage {
+  background-image: url("../../../assets/category-main/gadgets.jpg");
+}
+
+.nameDescription {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+}
+
+
+.nameLarge {
+  font-size: 50px;
+  margin: 0;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
 }

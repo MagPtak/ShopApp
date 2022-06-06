@@ -14,9 +14,12 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "../SignUp/SignUp.styles";
 import "../SignUp/SignUp.css";
 import routerPaths from "../../../routerPaths";
+import { AuthService } from "../../../services/AuthService";
 
 const SignIn: React.FC<Record<string, unknown>> = () => {
   const [checked, setChecked] = useState<boolean>(false);
+  const authService = new AuthService();
+
   const classes = useStyles();
   const navigate = useNavigate();
   const password = useRef<string | null>(null);
@@ -43,8 +46,14 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
   email.current = watch("email", "");
 
   const handleLoginSubmit = () => {
-    toggleLocalStorage();
-    navigate(routerPaths.profile);
+    authService
+      .login(email.current!, password.current!)
+      .then((response: any): void => {
+        toggleLocalStorage();
+        navigate(routerPaths.profile, {
+          state: { accessToken: response.data.access_token },
+        });
+      });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -139,8 +148,8 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
               {...register("password", {
                 required: "Please fulfill marked fields.",
                 minLength: {
-                  value: 8,
-                  message: "Minimum length is 8",
+                  value: 5,
+                  message: "Minimum length is 5",
                 },
               })}
             ></TextField>

@@ -12,11 +12,16 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "./SignUp.styles";
 import routerPaths from "../../../routerPaths";
 import "./SignUp.css";
+import { AuthService } from "../../../services/AuthService";
 
 const SignUp: React.FC<Record<string, unknown>> = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const firstName = useRef<string | null>();
+  const lastName = useRef<string | null>();
+  const email = useRef<string | null>();
   const password = useRef<string | number>();
+  const authService = new AuthService();
 
   const {
     register,
@@ -33,10 +38,25 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
     },
   });
 
+  firstName.current = watch("firstName", "");
+  lastName.current = watch("lastName", "");
+  email.current = watch("email", "");
   password.current = watch("password", "");
 
-  const handleLoginSubmit = () => {
-    navigate(routerPaths.profile);
+  const handleRegisterSubmit = () => {
+    authService
+      .registerUser(
+        firstName.current!,
+        lastName.current!,
+        email.current!,
+        password.current!
+      )
+      .then(() => {
+        navigate(routerPaths.signin);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -46,7 +66,7 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
           <Typography sx={{ fontSize: 30, fontWeight: 400, marginBottom: 5 }}>
             Enter Your Details
           </Typography>
-          <form onSubmit={handleSubmit(handleLoginSubmit)}>
+          <form onSubmit={handleSubmit(handleRegisterSubmit)}>
             <TextField
               placeholder="First Name *"
               variant="standard"
@@ -148,8 +168,8 @@ const SignUp: React.FC<Record<string, unknown>> = () => {
               {...register("password", {
                 required: "Please fulfill marked fields.",
                 minLength: {
-                  value: 8,
-                  message: "Minimum length is 8",
+                  value: 5,
+                  message: "Minimum length is 5",
                 },
               })}
             ></TextField>

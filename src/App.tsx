@@ -1,4 +1,3 @@
-import routerPaths from "./routerPaths";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import SignIn from "./components/pages/SignIn/SignIn";
 import SignUp from "./components/pages/SignUp/SignUp";
@@ -8,9 +7,10 @@ import Category from "./components/pages/Category/Category";
 import Cart from "./components/pages/Cart/Cart";
 import Product from "./components/pages/Product/Product";
 import Other from "./components/pages/Other/Other";
-import "./index.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import "./index.css";
+import routerPaths from "./routerPaths";
 
 const App = () => {
   return (
@@ -30,7 +30,9 @@ const App = () => {
             <Route path={routerPaths.profile} element={<Profile />} />
           </Routes>
         </div>
-        <Footer />
+        <div className="footer">
+          <Footer />
+        </div>
       </Router>
     </div>
   );
