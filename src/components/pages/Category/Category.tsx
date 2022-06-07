@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const Categories: React.FC<Record<string, unknown>> = () => {
@@ -14,6 +15,17 @@ const Categories: React.FC<Record<string, unknown>> = () => {
   } else {
     imageClassName = "gadgetsImage";
   }
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:9595/products")
+      .then((response: any) => {
+        console.log(response);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <article className="container">
