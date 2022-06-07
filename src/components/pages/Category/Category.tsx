@@ -1,8 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./Category.css";
 
-const Category: React.FC<Record<string, unknown>> = () => {
+const Categories: React.FC<Record<string, unknown>> = () => {
   const { name } = useParams();
   let imageClassName;
 
@@ -30,4 +29,4 @@ const Category: React.FC<Record<string, unknown>> = () => {
   );
 };
 
-export default Category;
+export default Categories;
