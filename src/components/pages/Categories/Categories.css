@@ -3,7 +3,7 @@
  
 }
 
-.clothingImage, .shoesImage, .accessoriesImage, .gadgetsImage {
+.clothingImage, .mensImage, .accessoriesImage, .gadgetsImage {
   height: 600px;
   width: 100vw;
   background-repeat: no-repeat;
@@ -19,8 +19,8 @@
   background-image: url("../../../assets/category-main/clothes.jpg");
 }
 
-.shoesImage {
-  background-image: url("../../../assets/category-main/shoes.jpg");
+.mensImage {
+  background-image: url("../../../assets/category-main/mens.jpg");
 }
 
 .accessoriesImage {
