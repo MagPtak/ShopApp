@@ -25,7 +25,10 @@ const App = () => {
             <Route path={routerPaths.signup} element={<SignUp />} />
             <Route path={routerPaths.categories} element={<Categories />} />
             <Route path={routerPaths.category} element={<Category />} />
-            <Route path={routerPaths.product} element={<Product />} />
+            <Route
+              path={routerPaths.product}
+              element={<Product props={[]} />}
+            />
             <Route path={routerPaths.cart} element={<Cart />} />
             <Route path={routerPaths.other} element={<Other />} />
             <Route path={routerPaths.profile} element={<Profile />} />
