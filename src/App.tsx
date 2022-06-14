@@ -27,7 +27,6 @@ const App = () => {
             <Route path={routerPaths.category} element={<Category />} />
             <Route
               path={routerPaths.product}
-              element={<Product props={[]} />}
             />
             <Route path={routerPaths.cart} element={<Cart />} />
             <Route path={routerPaths.other} element={<Other />} />

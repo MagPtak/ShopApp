@@ -1,7 +1,9 @@
 import axios from "axios";
+import { Card, CardContent, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Product from "../Product/Product";
+import "./Category.css";
 
 const Categories: React.FC<Record<string, unknown>> = () => {
   const [mensClothing, setMensClothing] = useState<any>([]);
@@ -30,7 +32,6 @@ const Categories: React.FC<Record<string, unknown>> = () => {
         arr.filter(function (el: any) {
           if (el.category === "men's clothing") {
             setMensClothing((mensClothing: any) => [...mensClothing, el]);
-            console.log(el);
           } else if (el.category === "women's clothing") {
             setWomensClothing((womensClothing: any) => [...womensClothing, el]);
           } else if (el.category === "jewelery") {
@@ -53,20 +54,41 @@ const Categories: React.FC<Record<string, unknown>> = () => {
             Choose The Wide Range Of Best {name}
           </p>
         </div>
-        <Product
+        {/* <Product
           props={
             name === "mens-clothing"
               ? mensClothing
               : name === "womens-clothing"
-              ? womensClothing
-              : name === "jewelery"
-              ? jewelry
-              : electronics
+                ? womensClothing
+                : name === "jewelery"
+                  ? jewelry
+                  : electronics
           }
-        />
+          key={
+            name === "mens-clothing"
+              ? mensClothing.id
+              : name === "womens-clothing"
+                ? womensClothing.id
+                : name === "jewelery"
+                  ? jewelry.id
+                  : electronics.id
+          } */}
+        {/* /> */}
         <ul>
           {name === "mens-clothing" &&
-            mensClothing.map((el: any) => <li key={el.id}>{el.title}</li>)}
+            mensClothing.map((el: any) => (
+              // <Product key={el.id} props={el}/>
+              <li  key={el.id}>
+                <Card className="product">
+                  <CardContent>
+                    <img className="productImg" src={el.image}></img>
+                    <Typography>
+                      {el.title}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </li>
+            ))}
           {name === "womens-clothing" &&
             womensClothing.map((el: any) => <li key={el.id}>{el.title}</li>)}
           {name === "jewelery" &&

@@ -1,0 +1,14 @@
+.product {
+  width: 300px;
+  height: 300px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.productImg {
+  height: 200px;
+  width: auto;
+  background-size: cover;
+}
