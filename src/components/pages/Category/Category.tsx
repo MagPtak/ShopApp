@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Select, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Product from "../Product/Product";
+import ProductCard from "../ProductCard/ProductCard";
 import "./Category.css";
 
 const Categories: React.FC<Record<string, unknown>> = () => {
@@ -46,7 +46,7 @@ const Categories: React.FC<Record<string, unknown>> = () => {
       });
   }, []);
   return (
-    <article className="container">
+    <article>
       <div className="categoryContent">
         <div className={imageClassName}>
           <p className="nameLarge">{name ? name : null}</p>
@@ -54,48 +54,36 @@ const Categories: React.FC<Record<string, unknown>> = () => {
             Choose The Wide Range Of Best {name}
           </p>
         </div>
-        {/* <Product
-          props={
-            name === "mens-clothing"
-              ? mensClothing
-              : name === "womens-clothing"
-                ? womensClothing
-                : name === "jewelery"
-                  ? jewelry
-                  : electronics
-          }
-          key={
-            name === "mens-clothing"
-              ? mensClothing.id
-              : name === "womens-clothing"
-                ? womensClothing.id
-                : name === "jewelery"
-                  ? jewelry.id
-                  : electronics.id
-          } */}
-        {/* /> */}
-        <ul>
-          {name === "mens-clothing" &&
-            mensClothing.map((el: any) => (
-              // <Product key={el.id} props={el}/>
-              <li  key={el.id}>
-                <Card className="product">
-                  <CardContent>
-                    <img className="productImg" src={el.image}></img>
-                    <Typography>
-                      {el.title}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </li>
-            ))}
-          {name === "womens-clothing" &&
-            womensClothing.map((el: any) => <li key={el.id}>{el.title}</li>)}
-          {name === "jewelery" &&
-            jewelry.map((el: any) => <li key={el.id}>{el.title}</li>)}
-          {name === "electronics" &&
-            electronics.map((el: any) => <li key={el.id}>{el.title}</li>)}
-        </ul>
+        <div className="productContent">
+          <aside>
+            <Card className="searchProduct">
+              <input placeholder="Search Products"></input>
+            </Card>
+            <Card className="categoryFilter"></Card>
+            <Card className="priceFilter"></Card>
+          </aside>
+          <div className="productListContainer">
+            <select>
+              <option value="featured">Featured</option>
+              <option value="lowestPrice">Lowest Price</option>
+              <option value="highestPrice">Highest Price</option>
+            </select>
+            <div className="dupa">
+              {name === "mens-clothing" &&
+                mensClothing.map((el: any) => (
+                  <ProductCard key={el.id} data={el} />
+                ))}
+              {name === "womens-clothing" &&
+                womensClothing.map((el: any) => (
+                  <li key={el.id}>{el.title}</li>
+                ))}
+              {name === "jewelery" &&
+                jewelry.map((el: any) => <li key={el.id}>{el.title}</li>)}
+              {name === "electronics" &&
+                electronics.map((el: any) => <li key={el.id}>{el.title}</li>)}
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   );

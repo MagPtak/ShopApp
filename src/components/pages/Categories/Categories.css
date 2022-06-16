@@ -1,7 +1,7 @@
-.categoryContent{
+/* .categoryContent{
   height: calc(100vh - 260px);
  
-}
+} */
 
 .clothingImage, .mensImage, .accessoriesImage, .gadgetsImage {
   height: 600px;

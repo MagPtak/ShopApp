@@ -6,7 +6,7 @@ import Home from "./components/pages/Home/Home";
 import Categories from "./components/pages/Categories/Categories";
 import Category from "./components/pages/Category/Category";
 import Cart from "./components/pages/Cart/Cart";
-import Product from "./components/pages/Product/Product";
+import ProductCard from "./components/pages/ProductCard/ProductCard";
 import Other from "./components/pages/Other/Other";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -25,9 +25,7 @@ const App = () => {
             <Route path={routerPaths.signup} element={<SignUp />} />
             <Route path={routerPaths.categories} element={<Categories />} />
             <Route path={routerPaths.category} element={<Category />} />
-            <Route
-              path={routerPaths.product}
-            />
+            <Route path={routerPaths.product} element={<ProductCard />} />
             <Route path={routerPaths.cart} element={<Cart />} />
             <Route path={routerPaths.other} element={<Other />} />
             <Route path={routerPaths.profile} element={<Profile />} />
