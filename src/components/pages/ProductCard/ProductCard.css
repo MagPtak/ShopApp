@@ -1,17 +1,8 @@
-/* .productList {
+.productCardContainer {
   display: flex;
-  flex-direction: row;
-  width: 60%;
-} */
-
-.productCardContainer{
-  display: flex;
-  /* flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 }
 
-.productImageContainer{
+.productImageContainer {
   height: 250px;
   width: auto;
   display: flex;
@@ -21,10 +12,9 @@
 .productCardImage {
   height: 80%;
   width: auto;
+  max-width: 220px;
   margin-top: 20px;
   margin-bottom: 30px;
-  /* z-index: 0;
-  position: relative; */
 }
 
 .productCardDescriptionContainer {
@@ -63,6 +53,15 @@
 .likeButton {
   z-index: 1;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  left: 100px;
+}
+
+.productDescription {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 180px;
+  font-weight: 500;
+
 }

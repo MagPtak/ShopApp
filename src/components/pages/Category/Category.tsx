@@ -59,8 +59,33 @@ const Categories: React.FC<Record<string, unknown>> = () => {
             <Card className="searchProduct">
               <input placeholder="Search Products"></input>
             </Card>
-            <Card className="categoryFilter"></Card>
-            <Card className="priceFilter"></Card>
+            <Card className="categoryFilter">
+              <p>Category</p>
+              <div>
+                <input placeholder="Search Here..."></input>
+              </div>
+            </Card>
+            <Card className="priceFilter">
+              <div className="priceCheckboxContainer">
+                <p>Price</p>
+                <div>
+                  <input type="radio" />
+                  <label>Below $10</label>
+                </div>
+                <div>
+                  <input type="radio" />
+                  <label>$10 - $100</label>
+                </div>
+                <div>
+                  <input type="radio" />
+                  <label>$100 - $500</label>
+                </div>
+                <div>
+                  <input type="radio" />
+                  <label>Abowe $500</label>
+                </div>
+              </div>
+            </Card>
           </aside>
           <div className="productListContainer">
             <select>
@@ -68,19 +93,21 @@ const Categories: React.FC<Record<string, unknown>> = () => {
               <option value="lowestPrice">Lowest Price</option>
               <option value="highestPrice">Highest Price</option>
             </select>
-            <div className="dupa">
+            <div className="productCategoryContainer">
               {name === "mens-clothing" &&
                 mensClothing.map((el: any) => (
                   <ProductCard key={el.id} data={el} />
                 ))}
               {name === "womens-clothing" &&
                 womensClothing.map((el: any) => (
-                  <li key={el.id}>{el.title}</li>
+                  <ProductCard key={el.id} data={el} />
                 ))}
               {name === "jewelery" &&
-                jewelry.map((el: any) => <li key={el.id}>{el.title}</li>)}
+                jewelry.map((el: any) => <ProductCard key={el.id} data={el} />)}
               {name === "electronics" &&
-                electronics.map((el: any) => <li key={el.id}>{el.title}</li>)}
+                electronics.map((el: any) => (
+                  <ProductCard key={el.id} data={el} />
+                ))}
             </div>
           </div>
         </div>

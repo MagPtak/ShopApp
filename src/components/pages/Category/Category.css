@@ -12,6 +12,7 @@ aside {
 .productListContainer {
   display: flex;
   flex-direction: column;
+  max-width: 80%;
 }
 
 .productListContainer select {
@@ -27,14 +28,10 @@ aside {
 }
 
 
-/* select option {
-  background-color: white!important;
-  font-size: 30px;
-} */
-
-.dupa {
+.productCategoryContainer {
   display: flex;
-
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 li {
@@ -43,24 +40,23 @@ li {
 
 .searchProduct {
   width: 250px;
-  height: 100px;
+  height: 80px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: none;
 
 }
 
-.searchProduct input {
+.searchProduct input, .categoryFilter input {
   border: none;
   border-bottom: 1px solid rgb(192, 192, 192);
   width: 80%;
   height: 30px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
-.searchProduct input::placeholder{
+.searchProduct input::placeholder, .categoryFilter input::placeholder{
   color: rgb(146, 146, 146);
   font-size: 16px;
 }
@@ -68,4 +64,30 @@ li {
 .categoryFilter {
   width: 250px;
   height: 300px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; 
+}
+
+.categoryFilter p {
+  margin-left: 22px;
+}
+
+.categoryFilter div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.priceFilter{
+  margin-top: 20px;
+}
+
+.priceCheckboxContainer {
+  margin-left: 22px;
+}
+
+.priceCheckboxContainer div {
+  margin-bottom: 15px;
 }

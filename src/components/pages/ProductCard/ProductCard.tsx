@@ -21,7 +21,6 @@ interface Params {
 }
 
 const ProductCard = (props: any) => {
-  const { name } = useParams();
   const { data } = props;
   const classes = useStyles();
 
@@ -37,11 +36,21 @@ const ProductCard = (props: any) => {
               alignItems: "center",
             }}
           >
+            <IconButton className="likeButton" sx={{ width: 0, height: 0 }}>
+              <Favorite
+                sx={{
+                  "&:hover": {
+                    color: "rgb(255, 85, 0)",
+                  },
+                }}
+              />
+            </IconButton>
             <div className="productImageContainer">
-              <img className="productCardImage" src={data.image} />
-              <IconButton className="likeButton">
-                <Favorite />
-              </IconButton>
+              <img
+                className="productCardImage"
+                src={data.image}
+                alt={data.title}
+              />
             </div>
             <div className="productCardDescriptionContainer">
               <Button
@@ -61,7 +70,7 @@ const ProductCard = (props: any) => {
                 <ShoppingCartIcon />
               </Button>
               <div className="productCardDescription">
-                <p>{data.title}</p>
+                <p className="productDescription">{data.title}</p>
                 <p className="productPrice">${data.price}</p>
               </div>
             </div>
