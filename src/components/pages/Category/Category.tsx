@@ -14,6 +14,11 @@ const Categories: React.FC<Record<string, unknown>> = () => {
   const productsService = new ProductsService();
 
   const { name } = useParams();
+  const mensArr = ["Backpacks", "T-shirts", "Jackets"];
+  const womensArr = ["T-shirts", "Jackets"];
+  const jewelryArr = ["Bracelets", "Rings"];
+  const electronicsArr = ["External Hard Drives", "Televisions"];
+
   let imageClassName;
 
   if (name === "mens-clothing") {
@@ -26,35 +31,21 @@ const Categories: React.FC<Record<string, unknown>> = () => {
     imageClassName = "gadgetsImage";
   }
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:9595/products")
-  //     .then((response: any) => {
-  //       const arr = Object.values(response.data);
-  //       arr.filter(function (el: any) {
-  //         if (el.category === "men's clothing") {
-  //           setMensClothing((mensClothing: any) => [...mensClothing, el]);
-  //         } else if (el.category === "women's clothing") {
-  //           setWomensClothing((womensClothing: any) => [...womensClothing, el]);
-  //         } else if (el.category === "jewelery") {
-  //           setJewelry((jewelry: any) => [...jewelry, el]);
-  //         } else if (el.category === "electronics") {
-  //           setElectronics((electronics: any) => [...electronics, el]);
-  //         }
-  //       });
-  //     })
-  //     .catch((error: any) => {
-  //       console.log(error);
-  //     });
-  // }, []);
-
   useEffect(() => {
-    productsService.getData(
-      setMensClothing,
-      setWomensClothing,
-      setJewelry,
-      setElectronics
-    );
+    const response = productsService.getData();
+    const arr = Object.values(response);
+    console.log(response);
+    arr.filter(function (el: any) {
+      if (el.category === "men's clothing") {
+        setMensClothing((mensClothing: any) => [...mensClothing, el]);
+      } else if (el.category === "women's clothing") {
+        setWomensClothing((womensClothing: any) => [...womensClothing, el]);
+      } else if (el.category === "jewelery") {
+        setJewelry((jewelry: any) => [...jewelry, el]);
+      } else if (el.category === "electronics") {
+        setElectronics((electronics: any) => [...electronics, el]);
+      }
+    });
   }, []);
   return (
     <article>
@@ -71,9 +62,18 @@ const Categories: React.FC<Record<string, unknown>> = () => {
               <input placeholder="Search Products"></input>
             </Card>
             <Card className="categoryFilter">
-              <p>Category</p>
+              <p>Types</p>
               <div>
                 <input placeholder="Search Here..."></input>
+              </div>
+              <div className="typesContainer">
+                {name === "mens-clothing" &&
+                  mensArr.map((el) => {
+                    <div>
+                      <input type="checkbox" id={el} key={el} />
+                      <label>{el}</label>
+                    </div>;
+                  })}
               </div>
             </Card>
             <Card className="priceFilter">

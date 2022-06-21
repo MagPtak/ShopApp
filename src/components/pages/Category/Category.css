@@ -91,3 +91,10 @@ li {
 .priceCheckboxContainer div {
   margin-bottom: 15px;
 }
+
+.typesContainer {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 180%;
+}
