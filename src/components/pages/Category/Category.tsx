@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Card } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -14,10 +13,10 @@ const Categories: React.FC<Record<string, unknown>> = () => {
   const productsService = new ProductsService();
 
   const { name } = useParams();
-  const mensArr = ["Backpacks", "T-shirts", "Jackets"];
-  const womensArr = ["T-shirts", "Jackets"];
-  const jewelryArr = ["Bracelets", "Rings"];
-  const electronicsArr = ["External Hard Drives", "Televisions"];
+  // const mensArr = ["Backpacks", "T-shirts", "Jackets"];
+  // const womensArr = ["T-shirts", "Jackets"];
+  // const jewelryArr = ["Bracelets", "Rings"];
+  // const electronicsArr = ["External Hard Drives", "Televisions"];
 
   let imageClassName;
 
@@ -32,19 +31,19 @@ const Categories: React.FC<Record<string, unknown>> = () => {
   }
 
   useEffect(() => {
-    const response = productsService.getData();
-    const arr = Object.values(response);
-    console.log(response);
-    arr.filter(function (el: any) {
-      if (el.category === "men's clothing") {
-        setMensClothing((mensClothing: any) => [...mensClothing, el]);
-      } else if (el.category === "women's clothing") {
-        setWomensClothing((womensClothing: any) => [...womensClothing, el]);
-      } else if (el.category === "jewelery") {
-        setJewelry((jewelry: any) => [...jewelry, el]);
-      } else if (el.category === "electronics") {
-        setElectronics((electronics: any) => [...electronics, el]);
-      }
+    productsService.getData().then((response: any) => {
+      const arr = Object.values(response.data);
+      arr.filter(function (el: any) {
+        if (el.category === "men's clothing") {
+          setMensClothing((mensClothing: any) => [...mensClothing, el]);
+        } else if (el.category === "women's clothing") {
+          setWomensClothing((womensClothing: any) => [...womensClothing, el]);
+        } else if (el.category === "jewelery") {
+          setJewelry((jewelry: any) => [...jewelry, el]);
+        } else if (el.category === "electronics") {
+          setElectronics((electronics: any) => [...electronics, el]);
+        }
+      });
     });
   }, []);
   return (
@@ -63,17 +62,70 @@ const Categories: React.FC<Record<string, unknown>> = () => {
             </Card>
             <Card className="categoryFilter">
               <p>Types</p>
-              <div>
+              <div className="categoryFilterSearch">
                 <input placeholder="Search Here..."></input>
               </div>
               <div className="typesContainer">
-                {name === "mens-clothing" &&
-                  mensArr.map((el) => {
-                    <div>
-                      <input type="checkbox" id={el} key={el} />
-                      <label>{el}</label>
-                    </div>;
-                  })}
+                {
+                  name === "mens-clothing" && (
+                    <>
+                      <div className="inputContainer">
+                        <input type="checkbox" id="backpack" />
+                        <label>Backpacks</label>
+                      </div>
+                      <div className="inputContainer">
+                        <input type="checkbox" id="t-shirts" />
+                        <label>T-shirts</label>
+                      </div>
+                      <div className="inputContainer">
+                        <input type="checkbox" id="jackets" />
+                        <label>Jackets</label>
+                      </div>
+                    </>
+                  )
+                  // mensArr.map((el) => {
+                  // <div className="typesContainer">
+                  //   <input type="checkbox" id={el} key={el} />
+                  //   <label>{el}</label>
+                  // </div>;
+                  // })
+                }
+                {name === "womens-clothing" && (
+                  <>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="t-shirts" />
+                      <label>T-shirts</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="jackets" />
+                      <label>Jackets</label>
+                    </div>
+                  </>
+                )}
+                {name === "jewelery" && (
+                  <>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="bracelets" />
+                      <label>Bracelets</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="rings" />
+                      <label>Rings</label>
+                    </div>
+                  </>
+                )}
+                {name === "electronics" && (
+                  <>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="televisions" />
+                      <label>Televisions</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="hardDrives" />
+                      <label>External Hard Drives</label>
+                    </div>
+                  </>
+                )}
               </div>
             </Card>
             <Card className="priceFilter">

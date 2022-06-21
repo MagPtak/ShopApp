@@ -45,7 +45,6 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .searchProduct input, .categoryFilter input {
@@ -63,7 +62,7 @@ li {
 
 .categoryFilter {
   width: 250px;
-  height: 300px;
+  height: auto;
   display: flex;
   align-items: flex-start;
   flex-direction: column; 
@@ -73,11 +72,10 @@ li {
   margin-left: 22px;
 }
 
-.categoryFilter div {
+.categoryFilterSearch {
   display: flex;
   justify-content: center;
   width: 100%;
-  
 }
 
 .priceFilter{
@@ -95,6 +93,20 @@ li {
 .typesContainer {
   display: flex;
   flex-direction: column;
-  height: 300px;
-  width: 180%;
+  height: auto;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0 10px 30px;
+}
+
+.inputContainer input {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
 }

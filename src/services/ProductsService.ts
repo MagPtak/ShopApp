@@ -5,7 +5,7 @@ export class ProductsService {
 
   public async getData() {
     const result = await axios
-      .get(`${this.host}/products`)
+      .get(`${this.host}products`)
       .then((response: AxiosResponse) => {
         return response;
       })
