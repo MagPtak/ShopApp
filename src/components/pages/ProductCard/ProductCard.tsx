@@ -1,8 +1,6 @@
 import { Badge, Button, Card, CardContent, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Favorite } from "@mui/icons-material";
-import React from "react";
-import { useParams } from "react-router-dom";
 import "./ProductCard.css";
 import { useStyles } from "./ProductCard.styles";
 

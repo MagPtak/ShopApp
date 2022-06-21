@@ -1,15 +1,17 @@
 import axios from "axios";
-import { Card, CardContent, Select, Typography } from "@mui/material";
+import { Card } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Category.css";
+import { ProductsService } from "../../../services/ProductsService";
 
 const Categories: React.FC<Record<string, unknown>> = () => {
   const [mensClothing, setMensClothing] = useState<any>([]);
   const [womensClothing, setWomensClothing] = useState<any>([]);
   const [jewelry, setJewelry] = useState<any>([]);
   const [electronics, setElectronics] = useState<any>([]);
+  const productsService = new ProductsService();
 
   const { name } = useParams();
   let imageClassName;
@@ -24,26 +26,35 @@ const Categories: React.FC<Record<string, unknown>> = () => {
     imageClassName = "gadgetsImage";
   }
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:9595/products")
+  //     .then((response: any) => {
+  //       const arr = Object.values(response.data);
+  //       arr.filter(function (el: any) {
+  //         if (el.category === "men's clothing") {
+  //           setMensClothing((mensClothing: any) => [...mensClothing, el]);
+  //         } else if (el.category === "women's clothing") {
+  //           setWomensClothing((womensClothing: any) => [...womensClothing, el]);
+  //         } else if (el.category === "jewelery") {
+  //           setJewelry((jewelry: any) => [...jewelry, el]);
+  //         } else if (el.category === "electronics") {
+  //           setElectronics((electronics: any) => [...electronics, el]);
+  //         }
+  //       });
+  //     })
+  //     .catch((error: any) => {
+  //       console.log(error);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:9595/products")
-      .then((response: any) => {
-        const arr = Object.values(response.data);
-        arr.filter(function (el: any) {
-          if (el.category === "men's clothing") {
-            setMensClothing((mensClothing: any) => [...mensClothing, el]);
-          } else if (el.category === "women's clothing") {
-            setWomensClothing((womensClothing: any) => [...womensClothing, el]);
-          } else if (el.category === "jewelery") {
-            setJewelry((jewelry: any) => [...jewelry, el]);
-          } else if (el.category === "electronics") {
-            setElectronics((electronics: any) => [...electronics, el]);
-          }
-        });
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+    productsService.getData(
+      setMensClothing,
+      setWomensClothing,
+      setJewelry,
+      setElectronics
+    );
   }, []);
   return (
     <article>
@@ -69,19 +80,19 @@ const Categories: React.FC<Record<string, unknown>> = () => {
               <div className="priceCheckboxContainer">
                 <p>Price</p>
                 <div>
-                  <input type="radio" />
+                  <input type="radio" id="0" name="price" />
                   <label>Below $10</label>
                 </div>
                 <div>
-                  <input type="radio" />
+                  <input type="radio" id="10" name="price" />
                   <label>$10 - $100</label>
                 </div>
                 <div>
-                  <input type="radio" />
+                  <input type="radio" id="100" name="price" />
                   <label>$100 - $500</label>
                 </div>
                 <div>
-                  <input type="radio" />
+                  <input type="radio" id="500" name="price" />
                   <label>Abowe $500</label>
                 </div>
               </div>
