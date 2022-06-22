@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Category.css";
 import { ProductsService } from "../../../services/ProductsService";
+import CategoryFilter from "./CategoryFilter";
+import PriceFilter from "./PriceFilter";
 
 const Categories: React.FC<Record<string, unknown>> = () => {
-  const [mensClothing, setMensClothing] = useState<any>([]);
+  const [mensClothing, setMensClothing] = useState<string | number | null>([]);
   const [womensClothing, setWomensClothing] = useState<any>([]);
   const [jewelry, setJewelry] = useState<any>([]);
   const [electronics, setElectronics] = useState<any>([]);
@@ -28,9 +30,12 @@ const Categories: React.FC<Record<string, unknown>> = () => {
   useEffect(() => {
     productsService.getData().then((response: any) => {
       const arr = Object.values(response.data);
-      arr.filter(function (el: any) {
+      arr.filter(function (el: string | number) {
         if (el.category === "men's clothing") {
-          setMensClothing((mensClothing: any) => [...mensClothing, el]);
+          setMensClothing((mensClothing): string | number => [
+            ...mensClothing,
+            el,
+          ]);
         } else if (el.category === "women's clothing") {
           setWomensClothing((womensClothing: any) => [...womensClothing, el]);
         } else if (el.category === "jewelery") {
@@ -55,87 +60,8 @@ const Categories: React.FC<Record<string, unknown>> = () => {
             <Card className="searchProduct">
               <input placeholder="Search Products"></input>
             </Card>
-            <Card className="categoryFilter">
-              <p>Types</p>
-              <div className="categoryFilterSearch">
-                <input placeholder="Search Here..."></input>
-              </div>
-              <div className="typesContainer">
-                {name === "mens-clothing" && (
-                  <>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="backpack" />
-                      <label>Backpacks</label>
-                    </div>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="t-shirts" />
-                      <label>T-shirts</label>
-                    </div>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="jackets" />
-                      <label>Jackets</label>
-                    </div>
-                  </>
-                )}
-                {name === "womens-clothing" && (
-                  <>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="t-shirts" />
-                      <label>T-shirts</label>
-                    </div>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="jackets" />
-                      <label>Jackets</label>
-                    </div>
-                  </>
-                )}
-                {name === "jewelery" && (
-                  <>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="bracelets" />
-                      <label>Bracelets</label>
-                    </div>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="rings" />
-                      <label>Rings</label>
-                    </div>
-                  </>
-                )}
-                {name === "electronics" && (
-                  <>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="televisions" />
-                      <label>Televisions</label>
-                    </div>
-                    <div className="inputContainer">
-                      <input type="checkbox" id="hardDrives" />
-                      <label>External Hard Drives</label>
-                    </div>
-                  </>
-                )}
-              </div>
-            </Card>
-            <Card className="priceFilter">
-              <div className="priceCheckboxContainer">
-                <p>Price</p>
-                <div>
-                  <input type="radio" id="price-0" name="price" />
-                  <label htmlFor="price-0">Below $10</label>
-                </div>
-                <div>
-                  <input type="radio" id="price-10" name="price" />
-                  <label htmlFor="price-10">$10 - $100</label>
-                </div>
-                <div>
-                  <input type="radio" id="price-100" name="price" />
-                  <label htmlFor="price-100">$100 - $500</label>
-                </div>
-                <div>
-                  <input type="radio" id="price-500" name="price" />
-                  <label htmlFor="price-500">Abowe $500</label>
-                </div>
-              </div>
-            </Card>
+            <CategoryFilter name={name} />
+            <PriceFilter />
           </aside>
           <div className="productListContainer">
             <select>
@@ -145,7 +71,7 @@ const Categories: React.FC<Record<string, unknown>> = () => {
             </select>
             <div className="productCategoryContainer">
               {name === "mens-clothing" &&
-                mensClothing.map((el: any) => (
+                mensClothing!.map((el: any) => (
                   <ProductCard key={el.id} data={el} />
                 ))}
               {name === "womens-clothing" &&
