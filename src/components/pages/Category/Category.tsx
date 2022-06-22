@@ -13,11 +13,6 @@ const Categories: React.FC<Record<string, unknown>> = () => {
   const productsService = new ProductsService();
 
   const { name } = useParams();
-  // const mensArr = ["Backpacks", "T-shirts", "Jackets"];
-  // const womensArr = ["T-shirts", "Jackets"];
-  // const jewelryArr = ["Bracelets", "Rings"];
-  // const electronicsArr = ["External Hard Drives", "Televisions"];
-
   let imageClassName;
 
   if (name === "mens-clothing") {
@@ -66,30 +61,22 @@ const Categories: React.FC<Record<string, unknown>> = () => {
                 <input placeholder="Search Here..."></input>
               </div>
               <div className="typesContainer">
-                {
-                  name === "mens-clothing" && (
-                    <>
-                      <div className="inputContainer">
-                        <input type="checkbox" id="backpack" />
-                        <label>Backpacks</label>
-                      </div>
-                      <div className="inputContainer">
-                        <input type="checkbox" id="t-shirts" />
-                        <label>T-shirts</label>
-                      </div>
-                      <div className="inputContainer">
-                        <input type="checkbox" id="jackets" />
-                        <label>Jackets</label>
-                      </div>
-                    </>
-                  )
-                  // mensArr.map((el) => {
-                  // <div className="typesContainer">
-                  //   <input type="checkbox" id={el} key={el} />
-                  //   <label>{el}</label>
-                  // </div>;
-                  // })
-                }
+                {name === "mens-clothing" && (
+                  <>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="backpack" />
+                      <label>Backpacks</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="t-shirts" />
+                      <label>T-shirts</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input type="checkbox" id="jackets" />
+                      <label>Jackets</label>
+                    </div>
+                  </>
+                )}
                 {name === "womens-clothing" && (
                   <>
                     <div className="inputContainer">
@@ -132,20 +119,20 @@ const Categories: React.FC<Record<string, unknown>> = () => {
               <div className="priceCheckboxContainer">
                 <p>Price</p>
                 <div>
-                  <input type="radio" id="0" name="price" />
-                  <label>Below $10</label>
+                  <input type="radio" id="price-0" name="price" />
+                  <label htmlFor="price-0">Below $10</label>
                 </div>
                 <div>
-                  <input type="radio" id="10" name="price" />
-                  <label>$10 - $100</label>
+                  <input type="radio" id="price-10" name="price" />
+                  <label htmlFor="price-10">$10 - $100</label>
                 </div>
                 <div>
-                  <input type="radio" id="100" name="price" />
-                  <label>$100 - $500</label>
+                  <input type="radio" id="price-100" name="price" />
+                  <label htmlFor="price-100">$100 - $500</label>
                 </div>
                 <div>
-                  <input type="radio" id="500" name="price" />
-                  <label>Abowe $500</label>
+                  <input type="radio" id="price-500" name="price" />
+                  <label htmlFor="price-500">Abowe $500</label>
                 </div>
               </div>
             </Card>
