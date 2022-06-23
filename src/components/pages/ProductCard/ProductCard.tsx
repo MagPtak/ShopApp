@@ -1,24 +1,11 @@
-import { Badge, Button, Card, CardContent, IconButton } from "@mui/material";
+import { Button, Card, CardContent, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Favorite } from "@mui/icons-material";
 import "./ProductCard.css";
 import { useStyles } from "./ProductCard.styles";
+import { ProductCardProps } from "../../model/interfaces";
 
-interface SingleProduct {
-  amount: number;
-  category: string;
-  description: string;
-  id: number;
-  image: string;
-  price: number;
-  title: string;
-}
-
-interface Params {
-  data: Array<SingleProduct>;
-}
-
-const ProductCard = (props: any) => {
+const ProductCard = (props: ProductCardProps) => {
   const { data } = props;
   const classes = useStyles();
 
