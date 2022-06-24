@@ -1,46 +1,112 @@
-.categoryContent{
-  height: calc(100vh - 260px);
- 
+.productContent {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 50px 0;
 }
 
-.clothingImage, .shoesImage, .accessoriesImage, .gadgetsImage {
-  height: 600px;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-size: cover;
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.productListContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.productListContainer select {
+  width: 200px;
+  height: 30px;
+  margin: 0 0 30px 25px;
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+  outline: none;
+}
+
+
+.productCategoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.searchProduct {
+  width: 250px;
+  height: 80px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.searchProduct input, .categoryFilter input {
+  border: none;
+  border-bottom: 1px solid rgb(192, 192, 192);
+  width: 80%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.searchProduct input::placeholder, .categoryFilter input::placeholder{
+  color: rgb(146, 146, 146);
+  font-size: 16px;
+}
+
+.categoryFilter {
+  width: 250px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; 
+}
+
+.categoryFilter p {
+  margin-left: 22px;
+}
+
+.categoryFilterSearch {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.priceFilter{
+  margin-top: 20px;
+}
+
+.priceCheckboxContainer {
+  margin-left: 22px;
+}
+
+.priceCheckboxContainer div {
+  margin-bottom: 15px;
+}
+
+.typesContainer {
+  display: flex;
   flex-direction: column;
-
+  height: auto;
+  width: 80%;
+  margin-top: 20px;
 }
 
-.clothingImage {
-  background-image: url("../../../assets/category-main/clothes.jpg");
+.inputContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0 10px 30px;
 }
 
-.shoesImage {
-  background-image: url("../../../assets/category-main/shoes.jpg");
-}
-
-.accessoriesImage {
-  background-image: url("../../../assets/category-main/accessories.jpg");
-}
-
-.gadgetsImage {
-  background-image: url("../../../assets/category-main/gadgets.jpg");
-}
-
-.nameDescription {
-  margin: 0;
-  color: rgb(255, 255, 255);
-  font-size: 28px;
-}
-
-
-.nameLarge {
-  font-size: 50px;
-  margin: 0;
-  color: rgb(255, 255, 255);
-  font-weight: 500;
+.inputContainer input {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
 }

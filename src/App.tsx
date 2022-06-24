@@ -3,14 +3,16 @@ import SignIn from "./components/pages/SignIn/SignIn";
 import SignUp from "./components/pages/SignUp/SignUp";
 import Profile from "./components/pages/Profile/Profile";
 import Home from "./components/pages/Home/Home";
+import Categories from "./components/pages/Categories/Categories";
 import Category from "./components/pages/Category/Category";
 import Cart from "./components/pages/Cart/Cart";
-import Product from "./components/pages/Product/Product";
+import ProductPage from "./components/pages/ProductPage/ProductPage";
 import Other from "./components/pages/Other/Other";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./index.css";
 import routerPaths from "./routerPaths";
+import { ProductCardProps } from "./components/model/interfaces";
 
 const App = () => {
   return (
@@ -22,9 +24,9 @@ const App = () => {
             <Route path={routerPaths.home} element={<Home />} />
             <Route path={routerPaths.signin} element={<SignIn />} />
             <Route path={routerPaths.signup} element={<SignUp />} />
-            <Route path={routerPaths.categories} element={<Category />} />
+            <Route path={routerPaths.categories} element={<Categories />} />
             <Route path={routerPaths.category} element={<Category />} />
-            <Route path={routerPaths.product} element={<Product />} />
+            <Route path={routerPaths.product} element={<ProductPage />} />
             <Route path={routerPaths.cart} element={<Cart />} />
             <Route path={routerPaths.other} element={<Other />} />
             <Route path={routerPaths.profile} element={<Profile />} />

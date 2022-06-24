@@ -4,7 +4,7 @@ const routerPaths = {
   home: "/",
   categories: "/category",
   category: "/category/:name",
-  product: "/product/:name",
+  product: "/product:name",
   cart: "/cart",
   other: "/other",
   profile: "/profile",

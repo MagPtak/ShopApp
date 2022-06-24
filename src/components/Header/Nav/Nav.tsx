@@ -20,7 +20,7 @@ const Nav: React.FC<Record<string, unknown>> = () => {
             backgroundColor: isActive ? "rgb(255, 85, 0)" : "rgb(48, 44, 136)",
           })}
         >
-          CATEGORY
+          CATEGORIES
         </NavLink>
         <NavLink
           to="/cart"
