@@ -13,6 +13,7 @@ const Categories = () => {
   const [womensClothing, setWomensClothing] = useState<Products[]>([]);
   const [jewelry, setJewelry] = useState<Products[]>([]);
   const [electronics, setElectronics] = useState<Products[]>([]);
+  const [inputValue, setInputValue] = useState("");
   const productsService = new ProductsService();
 
   const { name } = useParams();
@@ -27,6 +28,21 @@ const Categories = () => {
   } else if (name === "electronics") {
     imageClassName = "gadgetsImage";
   }
+
+  const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      const target = event.target as HTMLInputElement;
+      setInputValue(target.value);
+      if (name === "mens-clothing") {
+        mensClothing.filter(function (el) {
+          if (el.title.toLowerCase().includes(inputValue.toLocaleLowerCase())) {
+            console.log(inputValue);
+            setMensClothing(el);
+          }
+        });
+      }
+    }
+  };
 
   useEffect(() => {
     productsService.getData().then((response: any) => {
@@ -59,7 +75,11 @@ const Categories = () => {
         <div className="productContent">
           <aside>
             <Card className="searchProduct">
-              <input placeholder="Search Products"></input>
+              <input
+                type="search"
+                placeholder="Search Products"
+                onKeyDown={handleSearch}
+              ></input>
             </Card>
             <CategoryFilter name={name} />
             <PriceFilter />
