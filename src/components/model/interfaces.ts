@@ -15,3 +15,9 @@ export interface Products {
 export interface ProductCardProps {
   data: Products;
 }
+
+export enum SortOptions {
+  Featured = "featured",
+  Highest = "highest",
+  Lowest = "lowest",
+}

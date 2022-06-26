@@ -6,14 +6,15 @@ import "./Category.css";
 import { ProductsService } from "../../../services/ProductsService";
 import CategoryFilter from "./CategoryFilter";
 import PriceFilter from "./PriceFilter";
-import { Products } from "../../../components/model/interfaces";
+import { Products, SortOptions } from "../../../components/model/interfaces";
 
 const Categories = () => {
   const [mensClothing, setMensClothing] = useState<Products[]>([]);
   const [womensClothing, setWomensClothing] = useState<Products[]>([]);
   const [jewelry, setJewelry] = useState<Products[]>([]);
   const [electronics, setElectronics] = useState<Products[]>([]);
-  const [inputValue, setInputValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [pierceSortBy, setPierceSortBy] = useState<SortOptions>();
   const productsService = new ProductsService();
 
   const { name } = useParams();
@@ -29,19 +30,34 @@ const Categories = () => {
     imageClassName = "gadgetsImage";
   }
 
+
   const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      const target = event.target as HTMLInputElement;
-      setInputValue(target.value);
-      if (name === "mens-clothing") {
-        mensClothing.filter(function (el) {
-          if (el.title.toLowerCase().includes(inputValue.toLocaleLowerCase())) {
-            console.log(inputValue);
-            setMensClothing(el);
-          }
-        });
-      }
+      setSearchValue((event.target as HTMLInputElement).value);
     }
+  };
+
+  const getFiltredProducts = (collection: Products[]) => {
+    return collection.filter((product) =>
+      product.title.toLowerCase().includes(searchValue.toLocaleLowerCase())
+    );
+  };
+
+  const sortPierceBy = (a: Products, b: Products) => {
+    switch (pierceSortBy) {
+    case SortOptions.Lowest:
+      return a.price - b.price;
+    case SortOptions.Highest:
+      return b.price - a.price;
+    default:
+      return 0;
+    }
+  };
+
+  const handlePierceSortByChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setPierceSortBy(e.target.value as SortOptions);
   };
 
   useEffect(() => {
@@ -85,28 +101,28 @@ const Categories = () => {
             <PriceFilter />
           </aside>
           <div className="productListContainer">
-            <select>
-              <option value="featured">Featured</option>
-              <option value="lowestPrice">Lowest Price</option>
-              <option value="highestPrice">Highest Price</option>
+            <select onChange={handlePierceSortByChange} value={pierceSortBy}>
+              <option value={SortOptions.Featured}>Featured</option>
+              <option value={SortOptions.Lowest}>Lowest Price</option>
+              <option value={SortOptions.Highest}>Highest Price</option>
             </select>
             <div className="productCategoryContainer">
               {name === "mens-clothing" &&
-                mensClothing.map((el: Products) => (
-                  <ProductCard key={el.id} data={el} />
-                ))}
+                getFiltredProducts(mensClothing)
+                  .sort(sortPierceBy)
+                  .map((el: Products) => <ProductCard key={el.id} data={el} />)}
               {name === "womens-clothing" &&
-                womensClothing.map((el: Products) => (
-                  <ProductCard key={el.id} data={el} />
-                ))}
+                getFiltredProducts(womensClothing)
+                  .sort(sortPierceBy)
+                  .map((el: Products) => <ProductCard key={el.id} data={el} />)}
               {name === "jewelery" &&
-                jewelry.map((el: Products) => (
-                  <ProductCard key={el.id} data={el} />
-                ))}
+                getFiltredProducts(jewelry)
+                  .sort(sortPierceBy)
+                  .map((el: Products) => <ProductCard key={el.id} data={el} />)}
               {name === "electronics" &&
-                electronics.map((el: Products) => (
-                  <ProductCard key={el.id} data={el} />
-                ))}
+                getFiltredProducts(electronics)
+                  .sort(sortPierceBy)
+                  .map((el: Products) => <ProductCard key={el.id} data={el} />)}
             </div>
           </div>
         </div>
