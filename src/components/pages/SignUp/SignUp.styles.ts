@@ -39,8 +39,6 @@ export const useStyles = makeStyles({
   },
 
   message: {
-    // marginTop: 10,
-    // marginBottom: 15,
     marginBottom: 1,
 
     fontWeight: 300,
@@ -48,15 +46,4 @@ export const useStyles = makeStyles({
     color: "rgb(255, 0, 0)",
   },
 
-  // button: {
-  //   backgroundColor: "rgb(255, 85, 0)",
-  //   color: "rgb(250, 250, 250)",
-  //   width: "150px",
-  //   height: 50,
-  //   marginTop: 2,
-  //   "&:hover": {
-  //     backgroundColor: "rgb(255, 168, 124)",
-  //     color: "rgb(0, 0, 0)",
-  //   },
-  // },
 });

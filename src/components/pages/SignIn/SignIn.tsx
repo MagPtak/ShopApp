@@ -170,7 +170,6 @@ const SignIn: React.FC<Record<string, unknown>> = () => {
               </div>
               <Button
                 type="submit"
-                // className={classes.button}
                 sx={{
                   backgroundColor: "rgb(255, 85, 0)",
                   color: "rgb(250, 250, 250)",

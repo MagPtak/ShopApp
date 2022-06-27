@@ -1,9 +1,7 @@
-/* .categoryContent{
-  height: calc(100vh - 260px);
- 
-} */
-
-.clothingImage, .mensImage, .accessoriesImage, .gadgetsImage {
+.clothingImage,
+.mensImage,
+.accessoriesImage,
+.gadgetsImage {
   height: 600px;
   width: 100vw;
   background-repeat: no-repeat;

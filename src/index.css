@@ -7,14 +7,13 @@ body {
   background-color: rgb(249, 249, 249);
 }
 
-.appWrapper{
+.appWrapper {
   position: relative;
   width: 100%;
   min-height: 100vh;
 }
 
-
-.contentWrapper{
+.contentWrapper {
   padding-bottom: 250px;
 }
 

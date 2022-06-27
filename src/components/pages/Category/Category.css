@@ -1,7 +1,6 @@
 .productContent {
   display: flex;
-  justify-content: center;
-  padding: 50px 0 50px 0;
+  padding: 50px 10% 50px 10%;
 }
 
 aside {
@@ -9,10 +8,20 @@ aside {
   flex-direction: column;
 }
 
+.searchProduct {
+  width: 250px;
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .productListContainer {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  justify-content: center;
+  width: 80%;
 }
 
 .productListContainer select {
@@ -27,7 +36,6 @@ aside {
   outline: none;
 }
 
-
 .productCategoryContainer {
   display: flex;
   flex-wrap: wrap;
@@ -38,16 +46,8 @@ li {
   list-style-type: none;
 }
 
-.searchProduct {
-  width: 250px;
-  height: 80px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.searchProduct input, .categoryFilter input {
+.searchProduct input,
+.categoryFilter input {
   border: none;
   border-bottom: 1px solid rgb(192, 192, 192);
   width: 80%;
@@ -55,7 +55,8 @@ li {
   margin-top: 5px;
 }
 
-.searchProduct input::placeholder, .categoryFilter input::placeholder{
+.searchProduct input::placeholder,
+.categoryFilter input::placeholder {
   color: rgb(146, 146, 146);
   font-size: 16px;
 }
@@ -65,7 +66,8 @@ li {
   height: auto;
   display: flex;
   align-items: flex-start;
-  flex-direction: column; 
+  flex-direction: column;
+  padding-bottom: 10px;
 }
 
 .categoryFilter p {
@@ -78,8 +80,10 @@ li {
   width: 100%;
 }
 
-.priceFilter{
+.priceFilter {
   margin-top: 20px;
+  padding-bottom: 10px;
+
 }
 
 .priceCheckboxContainer {

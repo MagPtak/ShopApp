@@ -36,10 +36,10 @@ const Footer: React.FC<Record<string, unknown>> = () => {
           </div>
           <div className="column">
             <p className="title">CATEGORIES</p>
-            <Link to="/category/:women">women</Link>
-            <Link to="/category/:men">men</Link>
-            <Link to="/category/:accessories">accessories</Link>
-            <Link to="/category/:gadgets">gadgets</Link>
+            <Link to="/category/womens-clothing">women</Link>
+            <Link to="/category/mens-clothing">men</Link>
+            <Link to="/category/jewelery">jewelry</Link>
+            <Link to="/category/electronics">gadgets</Link>
           </div>
           <div className="column">
             <p className="title">SOCIAL</p>
